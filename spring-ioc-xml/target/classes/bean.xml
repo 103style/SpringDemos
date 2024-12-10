@@ -5,5 +5,4 @@
 
 
     <bean id="user" class="org.example.iocxml.User"/>
-
 </beans>
