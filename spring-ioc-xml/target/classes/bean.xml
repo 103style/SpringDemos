@@ -5,4 +5,11 @@
 
 
     <bean id="user" class="org.example.iocxml.User"/>
+
+    <!-- 一个接口实现类获取过程  -->
+<!--    <bean id="userDaoImpl" class="org.example.iocxml.bean.UserDaoImp"/>-->
+    <!-- 如果配置两个的话 通过 UserDao类型来获取实现类 就会报错 -->
+    <bean id="userDaoImpl2" class="org.example.iocxml.bean.UserDaoImp2"/>
+
+
 </beans>
