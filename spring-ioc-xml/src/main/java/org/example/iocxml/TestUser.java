@@ -12,7 +12,7 @@ public class TestUser {
         User user = (User) context.getBean("user");
         System.out.println("1.根据配置id获取bean：" + user);
 
-        // 2.根据类型获取对象
+        // 2.根据类型获取对象， 要求ioc容器中指定类型的bean只能有一个
         User user2 = context.getBean(User.class);
         System.out.println("2.根据类型获取bean：" + user2);
 
