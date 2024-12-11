@@ -15,6 +15,6 @@ public class TestBook {
 
         // 构造器注入
         Book book2 = context.getBean("bookConstruct", Book.class);
-        System.out.println(book);
+        System.out.println(book2);
     }
 }

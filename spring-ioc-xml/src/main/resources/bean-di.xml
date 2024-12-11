@@ -6,8 +6,8 @@
 
     <!-- 1 set方法注入  -->
     <bean id="book" class="org.example.iocxml.di.Book">
-        <property name="author" value="Java从入门到精通"/>
-        <property name="bookName" value="J"/>
+        <property name="bookName" value="BookName"/>
+        <property name="author" value="BookAuthor"/>
     </bean>
 
     <!-- 2 构造期注入 -->
