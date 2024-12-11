@@ -11,5 +11,8 @@ public class TestStudent {
         ApplicationContext context = new ClassPathXmlApplicationContext("bean-di-other-type.xml");
         Student studentA = context.getBean("studentA", Student.class);
         System.out.println(studentA);
+
+        Student studentB = context.getBean("studentB", Student.class);
+        System.out.println(studentB);
     }
 }
