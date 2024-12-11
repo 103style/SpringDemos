@@ -2,14 +2,13 @@ package org.example.bean.controller;
 
 
 import org.example.bean.service.IUserService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 @Controller
 public class UserController {
 
     // 第一种方式 属性注入
-//    @Autowired
+//    @Autowired    ⚠️⚠️⚠️默认根据类型匹配 ⚠️⚠️⚠️
 //    private IUserService service;
 
 
@@ -28,9 +27,15 @@ public class UserController {
 //    }
 
 
-    // 第四种方式 行参注入
+//    // 第四种方式 形参注入
+//    private IUserService service;
+//    public UserController(@Autowired IUserService service) {
+//        this.service = service;
+//    }
+
+    // 第五种方式 ⚠️⚠️⚠️当只有一个构造函数时⚠️⚠️⚠️，可以不添加 Autowired 注解，也能完成注入
     private IUserService service;
-    public UserController(@Autowired IUserService service) {
+    public UserController(IUserService service) {
         this.service = service;
     }
 
