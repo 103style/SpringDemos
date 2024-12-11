@@ -8,6 +8,10 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class TestAnnotation {
 
+    /**
+     * 1.bean.xml配置自动扫描
+     * 2.给对应的类配置注解 @Component
+     */
     @Test
     public void test() {
         ApplicationContext context = new ClassPathXmlApplicationContext("bean.xml");
@@ -15,8 +19,13 @@ public class TestAnnotation {
         System.out.println(user);
     }
 
+    /**
+     * 1.bean.xml配置自动扫描
+     * 2.给对应的类配置注解 @Repository @Servic @Controller
+     * 3.给对应的属性配置注解 @Autowired
+     */
     @Test
-    public void testAutoWired(){
+    public void testAutoWired() {
         ApplicationContext context = new ClassPathXmlApplicationContext("bean.xml");
         UserController controller = context.getBean(UserController.class);
         controller.addUser();
