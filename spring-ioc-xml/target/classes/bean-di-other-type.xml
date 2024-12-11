@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:util="http://www.springframework.org/schema/util"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/util
+       http://www.springframework.org/schema/util/spring-util.xsd">
 
     <bean id="lessonChinese" class="org.example.iocxml.diothertype.Lesson">
         <property name="lessonName" value="语文"/>
@@ -34,21 +38,34 @@
 
     <bean id="studentA" class="org.example.iocxml.diothertype.Student">
         <property name="name" value="学生A"/>
-        <property name="teacherList">
-            <list>
-                <ref bean="teacherLi"/>
-                <ref bean="teacherMa"/>
-                <ref bean="teacherWu"/>
-            </list>
-        </property>
-        <property name="grades">
-            <map>
-                <entry key-ref="lessonChinese" value="80"/>
-                <entry key-ref="lessonMath" value="90"/>
-                <entry key-ref="lessonEnglish" value="70"/>
-            </map>
-        </property>
+        <!--        <property name="teacherList">-->
+        <!--            <list>-->
+        <!--                <ref bean="teacherLi"/>-->
+        <!--                <ref bean="teacherMa"/>-->
+        <!--                <ref bean="teacherWu"/>-->
+        <!--            </list>-->
+        <!--        </property>-->
+        <property name="teacherList" ref="teacherList"/>
+        <!--        <property name="grades">-->
+        <!--            <map>-->
+        <!--                <entry key-ref="lessonChinese" value="80"/>-->
+        <!--                <entry key-ref="lessonMath" value="90"/>-->
+        <!--                <entry key-ref="lessonEnglish" value="70"/>-->
+        <!--            </map>-->
+        <!--        </property>-->
+        <property name="grades" ref="gradeMap"/>
     </bean>
 
+    <util:list id="teacherList">
+        <ref bean="teacherLi"/>
+        <ref bean="teacherMa"/>
+        <ref bean="teacherWu"/>
+    </util:list>
+
+    <util:map id="gradeMap">
+        <entry key-ref="lessonChinese" value="80"/>
+        <entry key-ref="lessonMath" value="90"/>
+        <entry key-ref="lessonEnglish" value="70"/>
+    </util:map>
 
 </beans>
