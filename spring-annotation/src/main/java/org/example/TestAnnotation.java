@@ -2,8 +2,10 @@ package org.example;
 
 import org.example.bean.User;
 import org.example.bean.controller.UserController;
+import org.example.config.SpringConfig;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class TestAnnotation {
@@ -27,6 +29,16 @@ public class TestAnnotation {
     @Test
     public void testAutoWired() {
         ApplicationContext context = new ClassPathXmlApplicationContext("bean.xml");
+        UserController controller = context.getBean(UserController.class);
+        controller.addUser();
+    }
+
+    /**
+     * 通过配置累的方式，完成注入， 不需要写xml配置
+     */
+    @Test
+    public void testConfig() {
+        ApplicationContext context = new AnnotationConfigApplicationContext(SpringConfig.class);
         UserController controller = context.getBean(UserController.class);
         controller.addUser();
     }
