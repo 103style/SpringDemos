@@ -12,6 +12,8 @@
         <module>spring-first</module>
         <module>spring-ioc-xml</module>
         <module>spring-annotation</module>
+        <module>spring-iocimp</module>
+        <module>spring-reflection</module>
     </modules>
 
     <properties>
