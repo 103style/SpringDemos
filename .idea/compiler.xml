@@ -12,5 +12,8 @@
         <module name="spring-reflection" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="spring-iocimp" target="17" />
+    </bytecodeTargetLevel>
   </component>
 </project>
