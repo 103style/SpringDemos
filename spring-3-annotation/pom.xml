@@ -9,7 +9,7 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>spring-iocimp</artifactId>
+    <artifactId>spring-3-annotation</artifactId>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>

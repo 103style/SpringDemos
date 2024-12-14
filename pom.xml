@@ -9,17 +9,17 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
     <modules>
-        <module>spring-first</module>
-        <module>spring-ioc-xml</module>
-        <module>spring-annotation</module>
-        <module>spring-iocimp</module>
-        <module>spring-reflection</module>
-        <module>spring-aop</module>
-        <module>spring-junit</module>
-        <module>spring-jdbc-todo</module>
-        <module>spring-resource-todo</module>
-        <module>spring-i18n</module>
-        <module>spring-validation</module>
+        <module>spring-1-first</module>
+        <module>spring-2-ioc-xml</module>
+        <module>spring-3-annotation</module>
+        <module>spring-5-iocimp</module>
+        <module>spring-4-reflection</module>
+        <module>spring-6-aop</module>
+        <module>spring-7-junit</module>
+        <module>spring-8-jdbc-todo</module>
+        <module>spring-9-resource-todo</module>
+        <module>spring-10-i18n</module>
+        <module>spring-11-validation</module>
     </modules>
 
     <properties>
