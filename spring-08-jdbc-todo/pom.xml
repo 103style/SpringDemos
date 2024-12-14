@@ -9,7 +9,7 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>spring-1-first</artifactId>
+    <artifactId>spring-08-jdbc</artifactId>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
