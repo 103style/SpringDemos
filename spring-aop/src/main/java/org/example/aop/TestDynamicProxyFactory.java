@@ -4,6 +4,10 @@ import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 
+/**
+ * create by 103style on 2024/12/14 19:11
+ * todo https://www.bilibili.com/video/BV1kR4y1b7Qc  52-60小节
+ */
 public class TestDynamicProxyFactory {
 
     private final Object target;
