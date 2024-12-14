@@ -19,6 +19,7 @@
         <module>spring-jdbc-todo</module>
         <module>spring-resource-todo</module>
         <module>spring-i18n</module>
+        <module>spring-validation</module>
     </modules>
 
     <properties>
@@ -69,6 +70,18 @@
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-slf4j2-impl</artifactId>
             <version>2.23.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.hibernate.validator</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>8.0.1.Final</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.glassfish</groupId>
+            <artifactId>jakarta.el</artifactId>
+            <version>4.0.2</version>
         </dependency>
 
         <!-- mysql 驱动 -->
