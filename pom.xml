@@ -18,7 +18,7 @@
         <module>spring-junit-todo</module>
         <module>spring-jdbc-todo</module>
         <module>spring-resource-todo</module>
-        <module>spring-i18n-todo</module>
+        <module>spring-i18n</module>
     </modules>
 
     <properties>
