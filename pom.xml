@@ -15,6 +15,10 @@
         <module>spring-iocimp</module>
         <module>spring-reflection</module>
         <module>spring-aop</module>
+        <module>spring-junit-todo</module>
+        <module>spring-jdbc-todo</module>
+        <module>spring-resource-todo</module>
+        <module>spring-i18n-todo</module>
     </modules>
 
     <properties>
