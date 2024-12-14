@@ -15,7 +15,7 @@
         <module>spring-iocimp</module>
         <module>spring-reflection</module>
         <module>spring-aop</module>
-        <module>spring-junit-todo</module>
+        <module>spring-junit</module>
         <module>spring-jdbc-todo</module>
         <module>spring-resource-todo</module>
         <module>spring-i18n</module>
@@ -39,6 +39,12 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-aop</artifactId>
+            <version>6.2.0</version>
+        </dependency>
+
+        <dependency>
+         <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
             <version>6.2.0</version>
         </dependency>
 
