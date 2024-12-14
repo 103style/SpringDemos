@@ -1,4 +1,4 @@
-package org.example.validation;
+package org.example.validation.one;
 
 /**
  * create by 103style on 2024/12/14 15:35
