@@ -23,15 +23,24 @@ public class MyBatisTest {
         SqlSessionFactoryBuilder sqlBuilder = new SqlSessionFactoryBuilder();
         // 获取factory对象
         SqlSessionFactory sessionFactory = sqlBuilder.build(is);
-        // 获取会话对象 sqlSession
-        SqlSession sqlSession = sessionFactory.openSession();
+
+        // 不常用方式：
+//        // 获取会话对象 sqlSession 不会自动提交
+//        SqlSession sqlSession = sessionFactory.openSession();
+//        // 参数为： mapper配置的 namespace （com.style103.mybatis.mapper.UserMapper） + sql语句的id（insertUser）
+//        int result = sqlSession.insert("com.style103.mybatis.mapper.UserMapper.insertUser");
+//        // 提交事务
+//        sqlSession.commit();
+
+        // 通用方式
+        // 获取会话对象 sqlSession, 配置参数为 true，即会自动提交
+        SqlSession sqlSession = sessionFactory.openSession(true);
         // 获取UserMapper的代理实现类对象
         UserMapper mapper = sqlSession.getMapper(UserMapper.class);
         // 调用对应的方法
         int result = mapper.insertUser();
+
         System.out.println("result:" + result);
-        // 提交事务
-        sqlSession.commit();
         // 关闭session
         sqlSession.close();
     }
