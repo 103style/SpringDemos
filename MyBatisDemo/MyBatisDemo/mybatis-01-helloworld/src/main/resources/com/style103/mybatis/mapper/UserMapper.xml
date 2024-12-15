@@ -33,14 +33,16 @@
         查询语句需要定义结果
         resultType:设置结果类型，即查询数据要转化的Java类型
         resultMap:自定义映射，处理多对一或者一对多的映射关系
+
+        User 是 mybatis-config中配置的别名，对应 com.style103.mybatis.User
       -->
-    <select id="getUserById" resultType="com.style103.mybatis.User">
+    <select id="getUserById" resultType="User">
         select *
         from t_user
         where id = 1
     </select>
 
-    <select id="getAllUser" resultType="com.style103.mybatis.User">
+    <select id="getAllUser" resultType="user">
         select *
         from t_user
     </select>
