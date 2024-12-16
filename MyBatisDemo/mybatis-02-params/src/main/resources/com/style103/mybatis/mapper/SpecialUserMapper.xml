@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.style103.mybatis.mapper.SpecialUserMapper">
+
+    <!-- List<User> getUserByLike(@Param("like") String like); -->
+    <!-- ''号里面不能用 #{} 写参数，需要用 ${} -->
+    <select id="getUserByLike" resultType="User">
+        <!-- 方式一 不用#{} 改用 ${}
+            select *
+            from t_user
+            WHERE username like '%${like}%'
+        -->
+
+        <!-- 方式二  使用 concat函数
+            select *
+            from t_user
+            WHERE username like concat('%',#{like},'%')
+        -->
+
+        <!-- 方式三  常用的方式-->
+        select *
+        from t_user
+        WHERE username like "%"#{like}"%"
+    </select>
+</mapper>
