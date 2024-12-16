@@ -8,16 +8,16 @@ public class Emp {
     private int empId;
     private String empName;
     private int empAge;
-    private int deptId;
+    private int empDeptId;
 
     public Emp() {
     }
 
-    public Emp(int empId, String empName, int empAge, int deptId) {
+    public Emp(int empId, String empName, int empAge, int empDeptId) {
         this.empId = empId;
         this.empName = empName;
         this.empAge = empAge;
-        this.deptId = deptId;
+        this.empDeptId = empDeptId;
     }
 
     public int getEmpId() {
@@ -44,16 +44,16 @@ public class Emp {
         this.empAge = empAge;
     }
 
-    public int getDeptId() {
-        return deptId;
+    public int getEmpDeptId() {
+        return empDeptId;
     }
 
-    public void setDeptId(int deptId) {
-        this.deptId = deptId;
+    public void setEmpDeptId(int empDeptId) {
+        this.empDeptId = empDeptId;
     }
 
     @Override
     public String toString() {
-        return "Emp{" + "empId=" + empId + ", empName='" + empName + '\'' + ", empAge=" + empAge + ", deptId=" + deptId + '}';
+        return "Emp{" + "empId=" + empId + ", empName='" + empName + '\'' + ", empAge=" + empAge + ", empDeptId=" + empDeptId + '}';
     }
 }
