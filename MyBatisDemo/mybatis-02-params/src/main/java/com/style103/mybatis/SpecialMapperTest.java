@@ -58,4 +58,15 @@ public class SpecialMapperTest {
         // 设置第一个参数的时候就会编译报错， 因为?在引号里面，所以无法找到参数
 //        preparedStatement.setString(1, "a");
     }
+
+    @Test
+    public void testInsertUserAndUpdateId() {
+        SqlSession sqlSession = SqlSessionUtils.getSqlSession();
+        SpecialUserMapper mapper = sqlSession.getMapper(SpecialUserMapper.class);
+        User user = new User(null, "xm", "mm123", 21, "男", "12323@qq.com");
+        mapper.insertUserAndSetPrimaryKey(user);
+        System.out.println(user);
+    }
+
+
 }

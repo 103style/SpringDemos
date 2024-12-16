@@ -32,4 +32,9 @@ public interface SpecialUserMapper {
      * 动态传入 表名 和 id 来查数据
      */
     User selectUserByTableNameAndId(@Param("tableName") String tableName, @Param("id") int id);
+
+    /**
+     * 插入数据的时候 并且写入主键到 user.id上
+     */
+    void insertUserAndSetPrimaryKey(User user);
 }
