@@ -26,6 +26,20 @@ public class SpecialMapperTest {
     }
 
     @Test
+    public void testSpecialDelete() {
+        SqlSession sqlSession = SqlSessionUtils.getSqlSession();
+        SpecialUserMapper mapper = sqlSession.getMapper(SpecialUserMapper.class);
+        mapper.deleteUserById(10, 11);
+    }
+
+    @Test
+    public void testDeleteMore() {
+        SqlSession sqlSession = SqlSessionUtils.getSqlSession();
+        SpecialUserMapper mapper = sqlSession.getMapper(SpecialUserMapper.class);
+        mapper.deleteMoreUser("12,13");
+    }
+
+    @Test
     public void testJdbc() throws Exception {
         Connection connection = DriverManager.getConnection("", "", "");
         // select * from t_user where username like '%#{}%'

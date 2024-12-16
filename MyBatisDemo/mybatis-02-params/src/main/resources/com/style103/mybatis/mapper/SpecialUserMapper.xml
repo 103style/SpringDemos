@@ -24,4 +24,18 @@
         from t_user
         WHERE username like "%"#{like}"%"
     </select>
+
+    <!--    void deleteUserById(int startId, int endId);-->
+    <delete id="deleteUserById">
+        delete
+        from t_user
+        WHERE id in (#{startId}, #{endId})
+    </delete>
+
+    <!--    void deleteMoreUser(@Param("ids") String ids);-->
+    <delete id="deleteMoreUser">
+        delete
+        from t_user
+        WHERE id in (${ids})
+    </delete>
 </mapper>

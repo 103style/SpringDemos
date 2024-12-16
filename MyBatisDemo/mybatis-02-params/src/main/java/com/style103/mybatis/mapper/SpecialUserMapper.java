@@ -16,4 +16,15 @@ public interface SpecialUserMapper {
      */
     List<User> getUserByLike(@Param("like") String like);
 
+
+    /**
+     * DELETE FROM t_user WHERE id = 6 OR id = 7
+     * DELETE FROM t_user WHERE id IN(8,9)
+     */
+    void deleteUserById(@Param("startId") int startId, @Param("endId") int endId);
+
+    /**
+     * DELETE FROM t_user WHERE id IN(8,9)
+     */
+    void deleteMoreUser(@Param("ids") String ids);
 }
