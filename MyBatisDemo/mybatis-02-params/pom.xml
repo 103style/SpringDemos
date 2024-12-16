@@ -9,10 +9,8 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-
-
-    <artifactId>mybatis-01-helloworld</artifactId>
-    <packaging>jar</packaging>
+    <groupId>com.style103.mybatis</groupId>
+    <artifactId>mybatis-02-params</artifactId>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>

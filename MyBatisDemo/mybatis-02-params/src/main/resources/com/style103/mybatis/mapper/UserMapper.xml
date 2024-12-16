@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.style103.mybatis.mapper.UserMapper">
+    <!--
+        mapper接口和映射文件要保证一致
+            1.mapper接口的全类名和映射文件的namespace保持一致
+            2.mapper接口中的方法名要和映射文件的sql id 保持一致
+    -->
+    <!--    User getUserById(Integer id);-->
+    <select id="getUserById" parameterType="int" resultType="User">
+        SELECT *
+        FROM t_user
+        WHERE id = #{id}
+    </select>
+</mapper>
