@@ -40,6 +40,15 @@ public class SpecialMapperTest {
     }
 
     @Test
+    public void testSelectWithTableName() {
+        SqlSession sqlSession = SqlSessionUtils.getSqlSession();
+        SpecialUserMapper mapper = sqlSession.getMapper(SpecialUserMapper.class);
+        User user = mapper.selectUserByTableNameAndId("t_user", 1);
+        System.out.println(user);
+    }
+
+
+    @Test
     public void testJdbc() throws Exception {
         Connection connection = DriverManager.getConnection("", "", "");
         // select * from t_user where username like '%#{}%'

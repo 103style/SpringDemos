@@ -38,4 +38,12 @@
         from t_user
         WHERE id in (${ids})
     </delete>
+
+    <!-- User selectUserByTableNameAndId(@Param("tableName") String tableName, @Param("id") int id); -->
+    <!-- 表明参数只能用${}, #{}会自动加单引号 -->
+    <select id="selectUserByTableNameAndId" resultType="User">
+        SELECT *
+        from ${tableName}
+        where id = #{id}
+    </select>
 </mapper>

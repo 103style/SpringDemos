@@ -27,4 +27,9 @@ public interface SpecialUserMapper {
      * DELETE FROM t_user WHERE id IN(8,9)
      */
     void deleteMoreUser(@Param("ids") String ids);
+
+    /**
+     * 动态传入 表名 和 id 来查数据
+     */
+    User selectUserByTableNameAndId(@Param("tableName") String tableName, @Param("id") int id);
 }
