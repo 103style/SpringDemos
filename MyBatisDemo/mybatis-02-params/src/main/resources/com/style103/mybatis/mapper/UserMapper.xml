@@ -14,4 +14,56 @@
         FROM t_user
         WHERE id = #{id}
     </select>
+
+    <!--    User getUserByName(String username);-->
+    <select id="getUserByName" resultType="User">
+        select *
+        from t_user
+        where username = #{username}
+    </select>
+
+    <!--    List<User> getAllUser();-->
+    <select id="getAllUser" resultType="User">
+        select *
+        from t_user
+    </select>
+
+    <!--    int updateUserNameById(int id, String name);-->
+    <select id="updateUserNameById">
+        update t_user
+        set username='${param2}'
+        where id = '${param1}'
+    </select>
+
+    <!--    int getUserCount();-->
+    <select id="getUserCount" resultType="int">
+        select count(*)
+        from t_user
+    </select>
+
+    <!--    Map<String, Object> getUserByIdToMap(@Param("id") int id);-->
+    <select id="getUserByIdToMap" resultType="map">
+        select *
+        from t_user
+        where id = #{id}
+    </select>
+
+    <!--    List<Map<String, Object>> getAllUserToMap();-->
+    <select id="getAllUserToMap" resultType="map">
+        select *
+        from t_user
+    </select>
+
+    <!--    void insertUser(@Param("user") User user);-->
+    <select id="insertUser" parameterType="User">
+        insert into t_user (username, password)
+        values (#{username}, #{password})
+    </select>
+
+    <!--    void deleteUserById(@Param("id") int id);-->
+    <select id="deleteUserById">
+        delete
+        from t_user
+        where id = #{id}
+    </select>
 </mapper>
