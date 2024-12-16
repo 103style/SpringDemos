@@ -4,4 +4,29 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.style103.mybatis.mapper.EmpMapper">
 
+    <!-- Emp selectEmpById(@Param("empId") String empId);-->
+    <!--  
+        方式一
+        需要在mybatis配置中开启 mapUnderscoreToCamelCase 为true
+        自动将下划线转换为驼峰 
+      -->
+    <select id="selectEmpById" resultType="Emp">
+        select *
+        from t_emp
+        where emp_id = #{empId}
+    </select>
+
+    <!-- Emp selectEmpByIdWithResultMap(@Param("empId") int empId);-->
+    <!-- 方式二 使用自定义映射-->
+    <resultMap id="empResult" type="Emp">
+        <id column="emp_id" property="empId"/>
+        <id column="emp_name" property="empName"/>
+        <id column="emp_age" property="empAge"/>
+        <id column="emp_dep_id" property="empDeptId"/>
+    </resultMap>
+    <select id="selectEmpByIdWithResultMap" resultMap="empResult">
+        select *
+        from t_emp
+        where emp_id = #{empId}
+    </select>
 </mapper>
