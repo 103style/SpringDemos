@@ -35,4 +35,19 @@
         where dep_id = #{depId}
     </select>
 
+    <resultMap id="depAndEmpByDepIdStepOne" type="Dep">
+        <id column="dep_id" property="depId"/>
+        <result column="dep_name" property="depName"/>
+
+        <association property="depEmps"
+                     select="com.style103.mybatis.mapper.EmpMapper.getDepAndEmpByDepIdStepTwo"
+                     column="dep_id"/>
+    </resultMap>
+    <!-- Dep getDepAndEmpByDepIdStepOne(@Param("depId") int depId);-->
+    <select id="getDepAndEmpByDepIdStepOne" resultMap="depAndEmpByDepIdStepOne">
+        select *
+        from t_dep
+        where dep_id = #{depId}
+    </select>
+
 </mapper>

@@ -91,4 +91,10 @@
         where emp_id = #{empId}
     </select>
 
+    <!-- List<Emp> getDepAndEmpByDepIdStepTwo(@Param("depId") int depId);-->
+    <select id="getDepAndEmpByDepIdStepTwo" resultType="Emp">
+        select *
+        from t_emp
+        where emp_dep_id = #{depId}
+    </select>
 </mapper>
