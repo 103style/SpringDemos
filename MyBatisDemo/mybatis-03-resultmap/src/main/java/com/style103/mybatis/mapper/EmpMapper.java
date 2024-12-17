@@ -12,4 +12,14 @@ public interface EmpMapper {
     Emp selectEmpById(@Param("empId") int empId);
 
     Emp selectEmpByIdWithResultMap(@Param("empId") int empId);
+
+    /**
+     * 通过员工id 查找 员工信息和部门信息
+     */
+    Emp getEmpAndDepByEmpId(@Param("empId") int empId);
+
+    /**
+     * 通过分布查询 返回员工信息和部门信息
+     */
+    Emp getEmpAndDepByStep(@Param("empId") int empId);
 }

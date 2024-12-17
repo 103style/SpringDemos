@@ -8,16 +8,19 @@ public class Emp {
     private int empId;
     private String empName;
     private int empAge;
-    private int empDeptId;
+    private int empDepId;
+
+    private Dep empDep;
 
     public Emp() {
     }
 
-    public Emp(int empId, String empName, int empAge, int empDeptId) {
+    public Emp(int empId, String empName, int empAge, int empDepId, Dep empDep) {
         this.empId = empId;
         this.empName = empName;
         this.empAge = empAge;
-        this.empDeptId = empDeptId;
+        this.empDepId = empDepId;
+        this.empDep = empDep;
     }
 
     public int getEmpId() {
@@ -44,16 +47,30 @@ public class Emp {
         this.empAge = empAge;
     }
 
-    public int getEmpDeptId() {
-        return empDeptId;
+    public int getEmpDepId() {
+        return empDepId;
     }
 
-    public void setEmpDeptId(int empDeptId) {
-        this.empDeptId = empDeptId;
+    public void setEmpDepId(int empDepId) {
+        this.empDepId = empDepId;
+    }
+
+    public Dep getEmpDep() {
+        return empDep;
+    }
+
+    public void setEmpDep(Dep empDep) {
+        this.empDep = empDep;
     }
 
     @Override
     public String toString() {
-        return "Emp{" + "empId=" + empId + ", empName='" + empName + '\'' + ", empAge=" + empAge + ", empDeptId=" + empDeptId + '}';
+        return "Emp{" +
+                "empId=" + empId +
+                ", empName='" + empName + '\'' +
+                ", empAge=" + empAge +
+                ", empDepId=" + empDepId +
+                ", empDep=" + empDep +
+                '}';
     }
 }
