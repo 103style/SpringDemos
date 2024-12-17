@@ -13,4 +13,26 @@
     <select id="getDepByDepId" resultType="Dep"> <!-- 这里直接用Dep是因为mybatis配置里面开启了 mapUnderscoreToCamelCase -->
         select * from t_dep where dep_id = #{depId};
     </select>
+
+
+    <resultMap id="getDepAndEmp" type="Dep">
+        <id column="dep_id" property="depId"/>
+        <result column="dep_name" property="depName"/>
+
+        <!-- 一对多 就用 collection, 类型用 ofType   -->
+        <collection property="depEmps" ofType="Emp">
+            <id column="emp_id" property="empId"/>
+            <result column="emp_name" property="empName"/>
+            <result column="emp_age" property="empAge"/>
+            <result column="emp_dep_id" property="empDepId"/>
+        </collection>
+    </resultMap>
+    <!-- Dep getDepAndEmpByDepId(@Param("depId") int depId); -->
+    <select id="getDepAndEmpByDepId" resultMap="getDepAndEmp">
+        select t_dep.*, t_emp.*
+        from t_dep
+                 left join t_emp on t_dep.dep_id = t_emp.emp_dep_id
+        where dep_id = #{depId}
+    </select>
+
 </mapper>

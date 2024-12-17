@@ -78,8 +78,9 @@
            property：设置需要处理映射关系的属性的属性名
            select：设置分步查询下一步的sql唯一标识
            column：将查询出来的某个字段作为 查询的sql条件
+           fetchType: lazy:延迟加载 | eager：立即加载
        -->
-        <association property="empDep"
+        <association property="empDep" fetchType="lazy"
                      select="com.style103.mybatis.mapper.DepMapper.getDepByDepId"
                      column="emp_dep_id"/>
     </resultMap>

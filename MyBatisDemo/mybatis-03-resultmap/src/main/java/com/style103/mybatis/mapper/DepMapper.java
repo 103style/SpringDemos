@@ -10,4 +10,14 @@ import org.apache.ibatis.annotations.Param;
 public interface DepMapper {
 
     Dep getDepByDepId(@Param("depId") int depId);
+
+    /**
+     * 通过部门id 查找部门信息和部门的员工信息
+     */
+    Dep getDepAndEmpByDepId(@Param("depId") int depId);
+
+    /**
+     * 分步查询部门信息，员工信息
+     */
+    Dep getDepAndEmpByDepIdStepOne(@Param("depId") int depId);
 }

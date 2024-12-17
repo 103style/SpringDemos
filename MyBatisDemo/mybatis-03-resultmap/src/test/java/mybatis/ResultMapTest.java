@@ -1,6 +1,8 @@
 package mybatis;
 
+import com.style103.mybatis.mapper.DepMapper;
 import com.style103.mybatis.mapper.EmpMapper;
+import com.style103.mybatis.pojo.Dep;
 import com.style103.mybatis.pojo.Emp;
 import com.style103.mybatis.utils.SqlSessionUtils;
 import org.apache.ibatis.session.SqlSession;
@@ -42,6 +44,30 @@ public class ResultMapTest {
         SqlSession sqlSession = SqlSessionUtils.getSqlSession();
         EmpMapper mapper = sqlSession.getMapper(EmpMapper.class);
         Emp emp = mapper.getEmpAndDepByStep(2);
-        System.out.println(emp);
+//        System.out.println(emp);
+
+        // 开启延迟加载 mybatis的配置属性 lazyLoadingEnabled
+        // 指挥执行 查询员工的sql语句，不会执行查询部门的sql
+        // 等读部门信息的时候才执行查部门信息的sql
+        System.out.println(emp.getEmpName());
     }
+
+
+    @Test
+    public void testGetDepAndEmpByDepId(){
+        SqlSession sqlSession = SqlSessionUtils.getSqlSession();
+        DepMapper mapper = sqlSession.getMapper(DepMapper.class);
+        Dep dep = mapper.getDepAndEmpByDepId(1);
+        System.out.println(dep);
+    }
+
+
+    @Test
+    public void testGetDepAndEmpByDepIdStepOne(){
+        SqlSession sqlSession = SqlSessionUtils.getSqlSession();
+        DepMapper mapper = sqlSession.getMapper(DepMapper.class);
+        Dep dep = mapper.getDepAndEmpByDepIdStepOne(1);
+        System.out.println(dep);
+    }
+
 }

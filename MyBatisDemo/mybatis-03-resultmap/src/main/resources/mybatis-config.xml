@@ -16,6 +16,10 @@
     <settings>
         <!-- 将下划线自动转化为驼峰 -->
         <setting name="mapUnderscoreToCamelCase" value="true"/>
+        <!-- 延迟加载 -->
+        <setting name="lazyLoadingEnabled" value="true"/>
+        <!-- 开启延迟加载的基础上  是否设置为积极的延迟加载-->
+        <setting name="aggressiveLazyLoading" value="false"/>
     </settings>
 
     <!-- 为某个具体的类型设置别名, 在mybatis相关的配置中就可以使用这些别名  -->

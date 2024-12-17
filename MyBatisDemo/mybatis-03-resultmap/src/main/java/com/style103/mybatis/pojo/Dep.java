@@ -1,5 +1,7 @@
 package com.style103.mybatis.pojo;
 
+import java.util.List;
+
 /**
  * create by 103style on 2024/12/16 23:28
  * github:https://github.com/103style
@@ -7,6 +9,7 @@ package com.style103.mybatis.pojo;
 public class Dep {
     private int depId;
     private String depName;
+    private List<Emp> depEmps;
 
     public Dep() {
     }
@@ -32,8 +35,16 @@ public class Dep {
         this.depName = depName;
     }
 
+    public List<Emp> getDepEmps() {
+        return depEmps;
+    }
+
+    public void setDepEmps(List<Emp> depEmps) {
+        this.depEmps = depEmps;
+    }
+
     @Override
     public String toString() {
-        return "Dep{" + "depId=" + depId + ", depName='" + depName + '\'' + '}';
+        return "Dep{" + "depId=" + depId + ", depName='" + depName + '\'' + ", depEmps=" + depEmps + '}';
     }
 }
