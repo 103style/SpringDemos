@@ -4,4 +4,89 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.style103.mybatis.mapper.DynamicSqlMapper">
 
+    <!-- List<Emp> selectByIf(@Param("emp") Emp emp);-->
+    <select id="selectByIf" resultType="Emp">
+        select * from t_emp where
+        <if test="emp.empName != null and emp.empName != ''">emp_name = #{emp.empName}</if>
+        <if test="emp.empAge != null and emp.empAge != ''">and emp_age = #{emp.empAge}</if>
+        <if test="emp.empDepId != null and emp.empDepId != ''">and emp_dep_id = #{emp.empDepId}</if>
+    </select>
+
+    <!-- List<Emp> selectByIf2(@Param("emp") Emp emp);-->
+    <select id="selectByIf2" resultType="Emp">
+        select * from t_emp where 1=1
+        <if test="emp.empName != null and emp.empName != ''">emp_name = #{emp.empName}</if>
+        <if test="emp.empAge != null and emp.empAge != ''">and emp_age = #{emp.empAge}</if>
+        <if test="emp.empDepId != null and emp.empDepId != ''">and emp_dep_id = #{emp.empDepId}</if>
+    </select>
+
+    <!-- List<Emp> selectByWhere(@Param("emp") Emp emp);-->
+    <select id="selectByWhere" resultType="Emp">
+        select * from t_emp
+        <where>
+            <if test="emp.empName != null and emp.empName != ''">emp_name = #{emp.empName}</if>
+            <if test="emp.empAge != null and emp.empAge != ''">and emp_age = #{emp.empAge}</if>
+            <if test="emp.empDepId != null and emp.empDepId != ''">and emp_dep_id = #{emp.empDepId}</if>
+        </where>
+    </select>
+
+    <!-- List<Emp> selectByTrim(@Param("emp") Emp emp);-->
+    <!-- 为了测试 if中 and 写在后面-->
+    <select id="selectByTrim" resultType="Emp">
+        select * from t_emp
+        <!-- prefix:添加前缀  suffixOverrides:删除后缀-->
+        <trim prefix="where" suffixOverrides="and">
+            <if test="emp.empName != null and emp.empName != ''">emp_name = #{emp.empName} and</if>
+            <if test="emp.empAge != null and emp.empAge != ''">emp_age = #{emp.empAge} and</if>
+            <if test="emp.empDepId != null and emp.empDepId != ''">emp_dep_id = #{emp.empDepId}</if>
+        </trim>
+    </select>
+
+    <!-- List<Emp> selectByChooseWhenOtherwise(@Param("emp") Emp emp);-->
+    <select id="selectByChooseWhenOtherwise" resultType="Emp">
+        select * from t_emp
+        <where>
+            <choose>
+                <when test="emp.empName != null and emp.empName != ''">emp_name = #{emp.empName}</when>
+                <when test="emp.empAge != null and emp.empAge != ''">emp_age = #{emp.empAge}</when>
+                <when test="emp.empDepId != null and emp.empDepId != ''">emp_name = #{emp.empDepId}</when>
+            </choose>
+        </where>
+    </select>
+
+    <!-- void insertListForeach(@Param("list") List<Emp> list);-->
+    <insert id="insertListForeach" useGeneratedKeys="true" keyProperty="empId">
+        insert into t_emp values
+        <foreach collection="list" item="emp" separator=",">
+            (null,#{emp.empName},#{emp.empAge},#{emp.empDepId})
+        </foreach>
+    </insert>
+
+    <!-- void deleteArrayForeach(@Param("empIds") Integer[] empIds); -->
+    <delete id="deleteArrayForeach">
+        delete from t_emp where emp_id in
+        <!-- 方式一 
+            (
+                <foreach collection="empIds" item="empId" separator=",">
+                    #{empId}
+                </foreach>
+            )
+        -->
+        <!-- 方式二 -->
+        <foreach collection="empIds" item="empId" separator="," open="(" close=")">
+            #{empId}
+        </foreach>
+    </delete>
+
+    <sql id="empColumns">
+        emp_id
+        ,emp_name,emp_age,emp_dep_id
+    </sql>
+    <!-- void selectBySqlPart();-->
+    <select id="selectBySqlPart" resultType="Emp">
+        select
+        <include refid="empColumns"/>
+        from t_emp
+    </select>
+
 </mapper>

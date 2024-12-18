@@ -5,27 +5,27 @@ package com.style103.mybatis.pojo;
  * github:https://github.com/103style
  */
 public class Emp {
-    private int empId;
+    private Integer empId;
     private String empName;
-    private int empAge;
-    private int empDepId;
+    private Integer empAge;
+    private Integer empDepId;
 
 
     public Emp() {
     }
 
-    public Emp(Integer empId, String empName, int empAge, int empDepId) {
+    public Emp(Integer empId, String empName, Integer empAge, Integer empDepId) {
         this.empId = empId;
         this.empName = empName;
         this.empAge = empAge;
         this.empDepId = empDepId;
     }
 
-    public int getEmpId() {
+    public Integer getEmpId() {
         return empId;
     }
 
-    public void setEmpId(int empId) {
+    public void setEmpId(Integer empId) {
         this.empId = empId;
     }
 
@@ -37,19 +37,19 @@ public class Emp {
         this.empName = empName;
     }
 
-    public int getEmpAge() {
+    public Integer getEmpAge() {
         return empAge;
     }
 
-    public void setEmpAge(int empAge) {
+    public void setEmpAge(Integer empAge) {
         this.empAge = empAge;
     }
 
-    public int getEmpDepId() {
+    public Integer getEmpDepId() {
         return empDepId;
     }
 
-    public void setEmpDepId(int empDepId) {
+    public void setEmpDepId(Integer empDepId) {
         this.empDepId = empDepId;
     }
 
