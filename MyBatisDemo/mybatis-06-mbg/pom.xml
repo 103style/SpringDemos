@@ -19,6 +19,12 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
+
+    <!-- 依赖MyBatis核心包 -->
+    <dependencies>
+        <!-- 统一配置在工程的pom.xml中  -->
+    </dependencies>
+
     <!-- 控制Maven在构建过程中相关配置 -->
     <build>
         <!-- 构建过程中用到的插件 -->
