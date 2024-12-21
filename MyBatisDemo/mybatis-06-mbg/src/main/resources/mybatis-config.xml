@@ -39,6 +39,11 @@
         <package name="com.style103.mybatis.pojo"/>
 
     </typeAliases>
+    
+    <plugins>
+        <!--设置分页插件-->
+        <plugin interceptor="com.github.pagehelper.PageInterceptor"/>
+    </plugins>
 
     <!--设置连接数据库的环境 default表示默认环境-->
     <environments default="development">
