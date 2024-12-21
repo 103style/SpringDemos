@@ -1,10 +1,12 @@
 package com.style103.mybatis.cache.pojo;
 
+import java.io.Serializable;
+
 /**
  * create by 103style on 2024/12/16 23:28
  * github:https://github.com/103style
  */
-public class Emp {
+public class Emp implements Serializable {
     private Integer empId;
     private String empName;
     private Integer empAge;
@@ -55,11 +57,6 @@ public class Emp {
 
     @Override
     public String toString() {
-        return "Emp{" +
-                "empId=" + empId +
-                ", empName='" + empName + '\'' +
-                ", empAge=" + empAge +
-                ", empDepId=" + empDepId +
-                '}';
+        return "Emp{" + "empId=" + empId + ", empName='" + empName + '\'' + ", empAge=" + empAge + ", empDepId=" + empDepId + '}';
     }
 }

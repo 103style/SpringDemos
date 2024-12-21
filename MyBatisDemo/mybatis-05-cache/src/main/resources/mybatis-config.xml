@@ -20,6 +20,8 @@
         <setting name="lazyLoadingEnabled" value="true"/>
         <!-- 开启延迟加载的基础上  是否设置为积极的延迟加载-->
         <setting name="aggressiveLazyLoading" value="false"/>
+        <!-- 开启mybatis 二级缓存, 默认true  可以不配 -->
+        <setting name="cacheEnabled" value="true"/>
     </settings>
 
     <!-- 为某个具体的类型设置别名, 在mybatis相关的配置中就可以使用这些别名  -->
