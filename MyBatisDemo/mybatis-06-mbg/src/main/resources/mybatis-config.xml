@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+    <!--
+        配置标签需要按以下顺序添加
+        "(properties?,settings?,typeAliases?,typeHandlers?,objectFactory?,objectWrapperFactory?,
+        reflectorFactory?,plugins?,environments?,databaseIdProvider?,mappers?)".
+     -->
+
+    <!-- 引入properties文件 可以使用方式访问value  -->
+    <properties resource="jdbc.properties"/>
+
+    <settings>
+        <!-- 将下划线自动转化为驼峰 -->
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+        <!-- 延迟加载 -->
+        <setting name="lazyLoadingEnabled" value="true"/>
+        <!-- 开启延迟加载的基础上  是否设置为积极的延迟加载-->
+        <setting name="aggressiveLazyLoading" value="false"/>
+        <!-- 开启mybatis 二级缓存, 默认true  可以不配 -->
+        <setting name="cacheEnabled" value="true"/>
+    </settings>
+
+    <!-- 为某个具体的类型设置别名, 在mybatis相关的配置中就可以使用这些别名  -->
+    <typeAliases>
+        <!-- 方式一 -->
+        <!--        <typeAlias type="com.style103.mybatis.User" alias="user"/>-->
+
+        <!-- 方式二 -->
+        <!-- 不配置alias属性，即默认的别名是类名，不区分大小写-->
+        <!-- 下面这个的别名就可以为：User / user / uSer 等 -->
+        <!--        <typeAlias type="com.style103.mybatis.User"/>-->
+
+        <!-- 方式三 -->
+        <!-- 通过包名配置别名，对应包下所有的类都有默认的别名，及对应的类名，也不区分大小写 -->
+        <package name="com.style103.mybatis.pojo"/>
+
+    </typeAliases>
+
+    <!--设置连接数据库的环境 default表示默认环境-->
+    <environments default="development">
+        <environment id="development">
+            <!--
+                配置事务管理器 type="JDBC|MANAGED"
+                    1.JDBC: 使用JDBC中原生的事务管理方式
+                    2.Managed:被管理，例如Spring
+            -->
+            <transactionManager type="JDBC"/>
+
+            <!--
+               配置数据源 type="POOLED|UNPOOLED|JNDI"
+                   1.POOLED: 表示使用数据库连接池
+                   2.UNPOOLED:表示不使用数据库连接池，每次都是新的连接
+                   3.JNDI:表示使用上下文中的数据元
+           -->
+            <dataSource type="POOLED">
+                <property name="driver" value="${jdbc.driver}"/>
+                <property name="url" value="${jdbc.url}"/>
+                <property name="username" value="${jdbc.username}"/>
+                <property name="password" value="${jdbc.password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <!--引入映射文件-->
+    <mappers>
+        <!-- 方式一  在 resources 目前下添加 mappers/UserMapper.xml -->
+        <!--        <mapper resource="mappers/UserMapper.xml"/>-->
+
+        <!--
+            方式二 通过包名映射 resources/包名 下面的所有配置文件
+                在 resources 的包名（name的值）下添加 UserMapper.xml
+                1.mapper接口和映射文件所在的包必须一致
+                2.mapper接口的名字和映射文件的名字必须一致
+          -->
+        <package name="com.style103.mybatis.mapper"/>
+    </mappers>
+</configuration>
