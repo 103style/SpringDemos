@@ -3,8 +3,11 @@
 * mybatis 实现增删改查
 * mybatis-config.xml 配置模板设置
 * xxxMapper.xml 配置模板设置
-* [MyBatisTest]()
+* [MyBatisTest](https://github.com/103style/SpringDemos/blob/master/MyBatisDemo/mybatis-01-helloworld/src/main/java/com/style103/mybatis/MyBatisTest.java)
+
+
 ---
+
 
 ### mybatis-02-params
 * mybatis 传参给sql实现增删改查
@@ -15,10 +18,12 @@
 * 模糊查询
 * 添加功能获取自增的主键
   * 在 `insert` 标签中配置 `useGeneratedKeys="true" keyProperty="对应的属性"`
-* [TestMyBatisWithParams]
-* [SpecialMapperTest]
+* [TestMyBatisWithParams](https://github.com/103style/SpringDemos/blob/master/MyBatisDemo/mybatis-02-params/src/main/java/com/style103/mybatis/TestMyBatisWithParams.java)
+* [SpecialMapperTest](https://github.com/103style/SpringDemos/blob/master/MyBatisDemo/mybatis-02-params/src/main/java/com/style103/mybatis/SpecialMapperTest.java)
+
 
 ---
+
 
 ### mybatis-03-resultmap
 * 对多一映射处理
@@ -37,12 +42,13 @@
 
 * 一对多映射处理
   * `<collection property="emps" ofType="Emp">`
-* [ResultMapTest]()
+* [ResultMapTest](https://github.com/103style/SpringDemos/blob/master/MyBatisDemo/mybatis-03-resultmap/src/test/java/mybatis/ResultMapTest.java)
+
 
 ---
 
+
 ### mybatis-04-dynamicsql 动态sql
-* [DynamicSqlTest]()
 * `if`
     ```
     <if test="ename != '' and ename != null"> 
@@ -97,14 +103,14 @@
 		</choose>
 	</where>
     ```
-* foreach
+* `foreach`
     ```
 	insert into t_emp values
 	<foreach collection="emps" item="emp" separator=",">
 		(null,#{emp.ename},#{emp.age},#{emp.sex},#{emp.email},null)
 	</foreach>
     ```
-* sql片段
+* `sql片段`
     ```
     <sql id="empColumns">
         eid,ename,age,sex,did
@@ -112,6 +118,11 @@
     
     select <include refid="empColumns"/> from t_emp
     ```
+* [DynamicSqlTest](https://github.com/103style/SpringDemos/blob/master/MyBatisDemo/mybatis-04-dynamicsql/src/test/java/mybatis/DynamicSqlTest.java)
+
+
+---
+
 
 ### mybatis-05-cache
 * 一级缓存
@@ -122,14 +133,25 @@
   * xxxMapper.xml 需要配置 `<cache />` 标签
   * 数据类需要实现序列化接口
 * 两个缓存只要中间出现增删改操作 就会触发缓存失效
-* [CacheTest]()
+* [CacheTest](https://github.com/103style/SpringDemos/blob/master/MyBatisDemo/mybatis-05-cache/src/test/java/style103/mybatis/cache/CacheTest.java)
+
+
+---
+
 
 ### mybatis-06-mbg
 * 逆向插件
   * 通过读表信息 生成对应的代码
-  * [generatorConfig.xml]()
-  * [pom.xml]()
-  * [MybatisMBGTest]()
+  * [generatorConfig.xml](https://github.com/103style/SpringDemos/blob/master/MyBatisDemo/mybatis-06-mbg/src/main/resources/generatorConfig.xml)
+  * [插件配置 pom.xml](https://github.com/103style/SpringDemos/blob/master/MyBatisDemo/pom.xml)
+  * [MybatisMBGTest](https://github.com/103style/SpringDemos/blob/master/MyBatisDemo/mybatis-06-mbg/src/test/java/com/style103/mybatis/MybatisMBGTest.java)
 * 分页插件
-  * `com.github.pagehelper`
-  * [PageTest]()
+  * `com.github.pagehelper` 依赖添加
+    ``` 
+    <dependency>
+      <groupId>com.github.pagehelper</groupId>
+      <artifactId>pagehelper</artifactId>
+      <version>5.3.1</version>
+    </dependency>
+    ``` 
+  * [PageTest](https://github.com/103style/SpringDemos/blob/master/MyBatisDemo/mybatis-06-mbg/src/test/java/com/style103/mybatis/PageTest.java)
