@@ -5,7 +5,7 @@
 * [MyBatis](https://github.com/103style/SpringDemos/tree/master/MyBatisDemo) done
   * https://www.bilibili.com/video/BV1Ya411S7aT/
 
-* [SpringMVC]() TODO
+* [SpringMVC](https://github.com/103style/SpringDemos/tree/master/SpringMVCDemo) doing
   * https://www.bilibili.com/video/BV1Ya411S7aT/
 
 * [SSM]() TODO
