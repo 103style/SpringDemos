@@ -16,6 +16,20 @@
     <servlet>
         <servlet-name>SpringMVC</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+
+        <init-param>
+            <!-- contextConfigLocation为固定值 -->
+            <param-name>contextConfigLocation</param-name>
+            <!-- 使用classpath:表示从类路径查找配置文件，例如maven工程中的src/main/resources -->
+            <param-value>classpath:springmvc.xml</param-value>
+        </init-param>
+
+        <!--
+          作为框架的核心组件，在启动过程中有大量的初始化操作要做
+          而这些操作放在第一次请求时才执行会严重影响访问速度
+          因此需要通过此标签将启动控制DispatcherServlet的初始化时间提前到服务器启动时
+        -->
+        <load-on-startup>1</load-on-startup>
     </servlet>
 
     <servlet-mapping>
