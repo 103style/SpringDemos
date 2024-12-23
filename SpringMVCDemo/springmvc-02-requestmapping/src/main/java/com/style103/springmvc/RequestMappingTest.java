@@ -10,7 +10,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class RequestMappingTest {
 
-    @RequestMapping("/")
+    /**
+     * RequestMapping 的 value是一个数组，可以配置多个地址对应同一个内容
+     */
+    @RequestMapping(value = {"/", "/home", "/index"})
     public String index() {
         return "index";
     }
