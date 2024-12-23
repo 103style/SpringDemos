@@ -18,9 +18,20 @@
 </form>
 
 <form method="post" th:action="@{/gettest}">
-    <p><input type="submit"> RequestMapping注解配置 method = {RequestMethod.GET, RequestMethod.POST}) post方法调用get测试</p>
+    <p><input type="submit"> RequestMapping注解配置 method = {RequestMethod.GET, RequestMethod.POST}) post方法调用get测试
+    </p>
 </form>
 
+<!--参数写法1 ?param=value -->
+<!--参数写法2 (param='value')-->
+<p><a th:href="@{/paramtest1(username='admin')}">点我</a> 测试注解的param属性, params = {"username"}, 必须有参数username</p>
+
+<p><a th:href="@{/paramtest2(username='admin')}">点我</a> 测试注解的param属性, params = {"!username"}, 不能有参数username
+</p>
+<p><a th:href="@{/paramtest3(username='haha')}">点我</a> 测试注解的param属性, params = {"username=haha"},
+    必须有参数username并且值必须是haha</p>
+<p><a th:href="@{/paramtest4(username='admin')}">点我</a> 测试注解的param属性, params = {"username!=haha"},
+    如果有username参数，只要值不是haha就行</p>
 
 </body>
 </html>
