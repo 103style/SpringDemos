@@ -8,5 +8,19 @@
 <h1>RequestMapping注解介绍</h1>
 <p><a th:href="@{/position}">点我</a> 类上有 RequestMapping注解, 只用方法返回的值</p>
 <p><a th:href="@{/position/index}">点我</a> 类上注解值 + 方法返回的值</p>
+
+<p><a th:href="@{/gettest}">点我</a> method= {RequestMethod.GET} 测试</p>
+<p><a th:href="@{/getMethod}">点我</a> @GetMapping注解测试</p>
+
+<p><a th:href="@{/posMethod}">点我</a> @PostMapping注解测试, 用get方法访问post注解会报错404</p>
+<form method="post" th:action="@{/postMethod}">
+    <p><input type="submit"> @PostMapping注解测试 post方法调用</p>
+</form>
+
+<form method="post" th:action="@{/gettest}">
+    <p><input type="submit"> RequestMapping注解配置 method = {RequestMethod.GET, RequestMethod.POST}) post方法调用get测试</p>
+</form>
+
+
 </body>
 </html>
