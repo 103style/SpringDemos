@@ -10,6 +10,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>springmvc-01-helloworld</module>
+        <module>springmvc-02-requestmapping</module>
     </modules>
 
     <properties>
