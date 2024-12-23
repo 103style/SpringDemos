@@ -41,5 +41,9 @@
 <p><a th:href="@{/anttest2/aasdasa}">点我</a> ant风格路径测试，匹配 "/anttest1/a*a" *可以是0个或者多个字符 </p>
 <p><a th:href="@{/anttest3/a/as/a/asd/asd/as/da/as/aa}">点我</a> ant风格路径测试，匹配 "/anttest3/**/aa" **可以是任意路径 </p>
 
+
+
+<p><a th:href="@{/testRest/1/admin}">点我</a> 路径占位符测试，路径 "/testRest/{id}/{username}", 获取请求参数，通过注解 @PathVariable("id") 获取 </p>
+
 </body>
 </html>
