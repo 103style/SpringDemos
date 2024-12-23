@@ -24,7 +24,8 @@
 
 <!--参数写法1 ?param=value -->
 <!--参数写法2 (param='value')-->
-<p><a th:href="@{/paramtest1(username='admin')}">点我</a> 测试注解的param属性, params = {"username"}, 必须有参数username</p>
+<p><a th:href="@{/paramtest1(username='admin')}">点我</a> 测试注解的param属性, params = {"username"}, 必须有参数username
+</p>
 
 <p><a th:href="@{/paramtest2(username='admin')}">点我</a> 测试注解的param属性, params = {"!username"}, 不能有参数username
 </p>
@@ -32,6 +33,8 @@
     必须有参数username并且值必须是haha</p>
 <p><a th:href="@{/paramtest4(username='admin')}">点我</a> 测试注解的param属性, params = {"username!=haha"},
     如果有username参数，只要值不是haha就行</p>
+
+<p><a th:href="@{/header}">点我</a> 测试注解的headers属性, headers = {"referer"}, 请求头必须有 referer, 直接复制打开后的链接请求会报错404</p>
 
 </body>
 </html>
