@@ -57,7 +57,7 @@
   * `*`:表示任意的0个或多个字符（不包括 ? 这些特殊字符）
   * `**`:匹配任意层数的任意目录， 前后不能有其他字符，**只能写在双斜线中
   
-* 占位符获取， 示例：请求`/testRest/1/admin`,通过`@PathVariable`注解即可获取到对应的占位符的值
+* 占位符获取， 示例：请求`/testRest/1/admin`,配置匹配链接为`/testRest/{id}/{username}` ,通过`@PathVariable`注解即可获取到对应的占位符的值
   ```
   @RequestMapping("/testRest/{id}/{username}")
   public String testRest(@PathVariable("id") String id, @PathVariable("username") String username) {
