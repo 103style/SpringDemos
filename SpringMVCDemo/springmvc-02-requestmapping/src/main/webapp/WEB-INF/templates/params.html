@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>请求的参数获取</title>
+</head>
+<body>
+<h1>RequestMapping获取请求的参数</h1>
+
+<form method="post" th:action="@{/by_http_servlet_request}">
+    <p>通过 HttpServletRequest 来获取请求参数 </p>
+    用户名：<input name="username" type="text">
+    密码：<input name="password" type="password">
+    <input type="submit" value="登录">
+</form>
+
+<form method="post" th:action="@{/by_param_name}">
+    <p>通过直接写参数名为请求参数名字获取参数值 </p>
+    用户名：<input name="username" type="text">
+    密码：<input name="password" type="password">
+    <input type="submit" value="登录">
+</form>
+
+
+<form method="post" th:action="@{/by_param_name2}">
+    <p>通过 @RequestParam 来获取对应参数的值 </p>
+    用户名：<input name="username" type="text">
+    密码：<input name="password" type="password">
+    <input type="submit" value="登录">
+</form>
+
+
+<form method="post" th:action="@{/by_param_name3}">
+    <p>通过 @RequestParam 来获取对应参数的值, 通过@RequestHeader来获取请求头参数 </p>
+    用户名：<input name="username" type="text">
+    密码：<input name="password" type="password">
+    <input type="submit" value="登录">
+</form>
+
+
+<form method="post" th:action="@{/by_pojo}">
+    <p>通过 参数对应的实体类来获取参数 </p>
+    用户名：<input name="username" type="text">
+    密码：<input name="password" type="password">
+    <input type="submit" value="登录">
+</form>
+
+</body>
+</html>
