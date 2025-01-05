@@ -1,3 +1,13 @@
+# 运行报错404问题 & web.xml配置的<filter-mapping>的<filter-name>的值报红问题修正
+* 打开工程结构选项框 (project structure)
+* 选择Modules
+* 选中对应的模块
+* 点击模块的web配置
+* 将Web配置的 `Deployment Descriptor`设置为对应的 web.xml文件的正确路径
+* 然后运行即可
+
+---
+
 # SpringMVC-01-HelloWorld
 * 添加webapp模块
   * maven archetype → archetype 中选择 web-app
