@@ -1,0 +1,16 @@
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.style103.springmvc</groupId>
+        <artifactId>SpringMVCDemo</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <artifactId>springmvc-06-ajax</artifactId>
+    <packaging>war</packaging>
+    <name>springmvc-06-ajax Maven Webapp</name>
+    <url>http://maven.apache.org</url>
+    <build>
+        <finalName>springmvc-06-ajax</finalName>
+    </build>
+</project>
