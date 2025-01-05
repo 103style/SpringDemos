@@ -94,3 +94,24 @@
     public String getParams3(User user) {}
     ```
 * 配置请求/响应的编码，避免乱码
+
+---
+
+# SpringMVC-03-ShareData
+* `HttpServletRequest` 的`setAttribute` 方式，运行报错 待处理
+* `ModelAndView` 的 `addObject` 方式共享数据
+* `Model` 的 `addAttribute` 方式共享数据
+* `Map` 的 `put` 方法添加共享数据
+* `ModelMap` 的 `addAttribute` 方式
+* `session` 的`setAttribute` 方式，运行报错 待处理
+* `application` 的`setAttribute` 方式，运行报错 待处理
+
+**Model、ModelMap、Map的关系**
+```
+public interface Model{}
+public class ModelMap extends LinkedHashMap<String, Object> {}
+public class ExtendedModelMap extends ModelMap implements Model {}
+public class BindingAwareModelMap extends ExtendedModelMap {}
+```
+
+---
