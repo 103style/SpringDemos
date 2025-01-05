@@ -133,7 +133,11 @@ public class BindingAwareModelMap extends ExtendedModelMap {}
 * `put` 和 `delete` 方法请求
   * 首先需要在 `web.xml` 中配置 `HiddenHttpMethodFilter` 过滤器
   * 然后添加 `from`表单，将`method`配置成 `post`, 内部需要添加一个 `<input type="hidden" name="_method" value="put/delete"/>`
-* 
+
+* 控制台输出中文乱码
+  * 检查 `Setting -> Editor -> File Encodings` 的所有编码是否设置为 `UTF-8`
+  * `web.xml` 中是否配置 `CharacterEncodingFilter` 过滤器，以及参数`encoding`是否配置为`UTF-8`，`forceEncoding`是否配置为`true`
+  * 可以在启动的 `VM options` 中配置 `-Dfile.encoding=UTF-8`
 
 
 
