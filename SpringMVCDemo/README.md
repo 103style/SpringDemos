@@ -117,3 +117,14 @@ public class BindingAwareModelMap extends ExtendedModelMap {}
 ```
 
 ---
+
+# SpringMVC-04-View
+* `xxx`: ThymeleafView 
+  * 当控制器方法中所设置的视图名称没有任何前缀时,此时的视图名称会被SpringMVC配置文件中所配置的视图解析器解析
+* `forward:/xxx` 转发视图：`InternalResourceView`
+  * 当控制器方法中所设置的视图名称以"forward:"为前缀时，创建InternalResourceView视图
+* `forward:/xxx` 重定向视图：`RedirectView`
+  * 当控制器方法中所设置的视图名称以"redirect:"为前缀时，创建RedirectView视图
+
+
+---
