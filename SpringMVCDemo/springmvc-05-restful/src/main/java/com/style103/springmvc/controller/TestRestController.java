@@ -12,6 +12,14 @@ import org.springframework.web.bind.annotation.*;
  * 添加用户信息 /user --->post
  * 修改用户信息 /user --->put
  * 通过id删除用户信息 /user/1 --->delete
+ *
+ * put 和 delete 方法需要配置 HiddenHttpMethodFilter 过滤器
+ * 1.form的method需要设置为 post
+ * 2.需要增加一个 name="_method" type="hidden" value="put/delete"的input标签
+ * <form method="post" th:action="@{/user}">
+ *     <input name="_method" type="hidden" value="put">
+ *     <input type="submit" value="修改用户信息">
+ * </form>
  */
 @Controller
 public class TestRestController {

@@ -16,16 +16,20 @@
 </form>
 
 
+<p/>
 <form method="post" th:action="@{/user}">
     <input name="_method" type="hidden" value="put">
     <input type="submit" value="修改用户信息">
 </form>
 
-
+<p/>
 <form method="post" th:action="@{/user/1}">
     <input name="_method" type="hidden" value="delete">
     <input type="submit" value="删除用户信息">
 </form>
+
+
+<p><a th:href="@{/employee}">查询所有员工信息</a></p>
 
 </body>
 </html>
