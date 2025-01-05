@@ -98,6 +98,8 @@
 ---
 
 # SpringMVC-03-ShareData
+[参考代码](https://github.com/103style/SpringDemos/blob/master/SpringMVCDemo/springmvc-03-sharedata/src/main/java/com/style103/springmvc/controller/ShareDataController.java)
+
 * `HttpServletRequest` 的`setAttribute` 方式，运行报错 待处理
 * `ModelAndView` 的 `addObject` 方式共享数据
 * `Model` 的 `addAttribute` 方式共享数据
