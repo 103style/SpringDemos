@@ -139,6 +139,9 @@ public class BindingAwareModelMap extends ExtendedModelMap {}
   * `web.xml` 中是否配置 `CharacterEncodingFilter` 过滤器，以及参数`encoding`是否配置为`UTF-8`，`forceEncoding`是否配置为`true`
   * 可以在启动的 `VM options` 中配置 `-Dfile.encoding=UTF-8`
 
-
+* 静态资源处理
+  * 需要在 `springmvc.xml` 中 添加以下两个配置， 浏览器发送的请求默认会被`DispatcherServlet`处理，处理不了的会被`DefaultServlet`处理
+    * `<mvc:default-servlet-handler/>` 配置默认的servlet处理静态资源
+    * `<mvc:annotation-driven/>`  开启注解驱动
 
 ---

@@ -40,10 +40,23 @@
         <property name="characterEncoding" value="UTF-8"/>
     </bean>
 
-    <!--  开启注解驱动  -->
-    <mvc:annotation-driven />
+    <!--
+        配置默认的servlet处理静态资源  还需要配置 开启注解驱动
+        当前工程的web.xml配置的前端控制器 DispatcherServlet 的url-pattern是 "/"
+        tomcat的web.xml配置的前端控制器 DefaultServlet 的url-pattern也是 "/"
+        此时浏览器的处理优先被DispatcherServlet进行处理，但是它无法处理静态资源
+        若配置了 <mvc:default-servlet-handler/> 此时浏览器发送的请求都会被DefaultServlet处理
+        若配置了 <mvc:default-servlet-handler/> 和 <mvc:annotation-driven/>
+        浏览器发送的请求默认会被 DispatcherServlet处理，处理不了的会被DefaultServlet处理
+    -->
+    <mvc:default-servlet-handler/>
 
-    <!--  配置试图控制器  -->
+    <!--  开启注解驱动  -->
+    <mvc:annotation-driven/>
+
+    <!--  配置试图控制器  需要开启注解驱动， 否则只能处理 / 这一个地址 -->
     <mvc:view-controller path="/" view-name="index"/>
+
+    <mvc:view-controller path="/to/add" view-name="employee_add"/>
 
 </beans>
