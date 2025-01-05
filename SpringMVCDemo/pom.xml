@@ -11,6 +11,7 @@
     <modules>
         <module>springmvc-01-helloworld</module>
         <module>springmvc-02-requestmapping</module>
+        <module>springmvc-03-sharedata</module>
     </modules>
 
     <properties>
