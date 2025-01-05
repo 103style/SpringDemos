@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>员工列表</title>
+    <!--  使用cdn的方式点击响应会慢很多, 应该有方法解决  -->
+    <!--    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>-->
     <script th:src="@{/static/js/vue.js}"></script>
 </head>
 <body>
@@ -31,7 +33,7 @@
         </tr>
     </table>
 
-    <form action="" method="post">
+    <form action="" id="delete_form" method="post">
         <input name="_method" type="hidden" value="delete">
     </form>
 </div>
@@ -47,7 +49,8 @@
             deleteEmployee(event) {
                 console.log('Link clicked ' + event);
                 //获取form表单
-                var form = document.getElementsByTagName("form")[0];
+                let form = document.getElementById("delete_form");
+                console.log('Link clicked form:' + form);
                 // 将超链节的href属性值赋值给form的action属性
                 form.action = event.target.href;
                 // 提交表单

@@ -144,4 +144,12 @@ public class BindingAwareModelMap extends ExtendedModelMap {}
     * `<mvc:default-servlet-handler/>` 配置默认的servlet处理静态资源
     * `<mvc:annotation-driven/>`  开启注解驱动
 
+* vue.js下载方式
+  * 点击 https://cn.vuejs.org/
+  * 点击快速上手
+  * 点击左边栏的快速上手
+  * 下拉找到 `通过CDN使用Vue`, 打开`<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>`中的链接复制内容到本地
+  * 也可以直接使用 CDN的方式使用Vue
+  * 点击事件设置 `v-on:click="deleteEmployee($event)"`
+
 ---
