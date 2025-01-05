@@ -5,10 +5,7 @@ import com.style103.springmvc.pojo.Employee;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
 
@@ -57,6 +54,14 @@ public class EmployeeController {
     @PutMapping("/employee")
     public String updateEmployee(Employee employee) {
         employeeDao.save(employee);
+        // 重定向到员工列表
+        return "redirect:/employee";
+    }
+
+
+    @DeleteMapping("/employee/{id}")
+    public String deleteEmployee(@PathVariable("id") Integer id) {
+        employeeDao.delete(id);
         // 重定向到员工列表
         return "redirect:/employee";
     }
