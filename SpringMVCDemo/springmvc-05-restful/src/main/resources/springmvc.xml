@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+    <!-- 自动扫描包 -->
+    <context:component-scan base-package="com.style103.springmvc.controller"/>
+
+    <!-- 配置Thymeleaf视图解析器 -->
+    <bean id="templateResolver"
+          class="org.thymeleaf.spring6.templateresolver.SpringResourceTemplateResolver">
+        <!--
+                        跳转目录：/WEB-INF/templates/index.html
+                        去掉前缀 /WEB-INF/templates/
+                        去掉后缀.html
+                        实际输入 index
+                    -->
+        <!-- 视图前缀 -->
+        <property name="prefix" value="/WEB-INF/templates/"/>
+        <!-- 视图后缀 -->
+        <property name="suffix" value=".html"/>
+
+        <property name="templateMode" value="HTML"/>
+        <property name="cacheable" value="true"/>
+
+        <property name="characterEncoding" value="UTF-8"/>
+    </bean>
+
+
+    <bean id="templateEngine"
+          class="org.thymeleaf.spring6.SpringTemplateEngine">
+        <property name="templateResolver" ref="templateResolver"/>
+        <property name="enableSpringELCompiler" value="true"/>
+    </bean>
+
+    <bean class="org.thymeleaf.spring6.view.ThymeleafViewResolver">
+        <property name="templateEngine" ref="templateEngine"/>
+        <property name="order" value="1"/>
+        <property name="characterEncoding" value="UTF-8"/>
+    </bean>
+
+    <!--  开启注解驱动  -->
+    <mvc:annotation-driven />
+
+    <!--  配置试图控制器  -->
+    <mvc:view-controller path="/" view-name="index"/>
+
+</beans>

@@ -13,6 +13,7 @@
         <module>springmvc-02-requestmapping</module>
         <module>springmvc-03-sharedata</module>
         <module>springmvc-04-view</module>
+        <module>springmvc-05-restful</module>
     </modules>
 
     <properties>
