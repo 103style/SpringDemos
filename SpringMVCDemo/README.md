@@ -128,3 +128,13 @@ public class BindingAwareModelMap extends ExtendedModelMap {}
 
 
 ---
+
+# SpringMVC-05-Restful
+* `put` 和 `delete` 方法请求
+  * 首先需要在 `web.xml` 中配置 `HiddenHttpMethodFilter` 过滤器
+  * 然后添加 `from`表单，将`method`配置成 `post`, 内部需要添加一个 `<input type="hidden" name="_method" value="put/delete"/>`
+* 
+
+
+
+---

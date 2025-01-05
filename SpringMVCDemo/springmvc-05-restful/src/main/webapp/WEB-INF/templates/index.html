@@ -7,6 +7,25 @@
 <body>
 <h1>Restful</h1>
 
+<p><a th:href="@{/user}">查询所有的用户信息</a></p>
+
+<p><a th:href="@{/user/1}">通过id查询用户信息</a></p>
+
+<form method="post" th:action="@{/user}">
+    <input type="submit" value="添加用户信息">
+</form>
+
+
+<form method="post" th:action="@{/user}">
+    <input name="_method" type="hidden" value="put">
+    <input type="submit" value="修改用户信息">
+</form>
+
+
+<form method="post" th:action="@{/user/1}">
+    <input name="_method" type="hidden" value="delete">
+    <input type="submit" value="删除用户信息">
+</form>
 
 </body>
 </html>
