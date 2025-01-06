@@ -10,7 +10,8 @@
 <h1>ajax回顾</h1>
 
 <div id="app">
-    <input type="button" v-on:click="testAjax($event)" value="测试SpringMVC处理ajax请求"/>
+    <input type="button" v-on:click="testAjax($event)" value="测试SpringMVC处理ajax请求"/> <br/>
+    <input type="button" v-on:click="testAjaxRequestBody()" value="是用@RequestBody注解来处理json格式的请求数据"/> <br/>
 </div>
 
 <script type="text/javascript">
@@ -53,6 +54,16 @@
                 }).catch(function (error) {
                     console.log(error);
                 });
+            },
+            testAjaxRequestBody() {
+                axios.post(
+                    '/springmvc/test/ajax/requestbody/json',
+                    {username: 'admin', password: '123456', age: 23, gender: `男`}
+                ).then(function (response) {
+                    console.log(response);
+                }).catch(function (error) {
+                    console.log(error)
+                })
             }
         }
     }).mount('#app');
