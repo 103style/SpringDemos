@@ -11,6 +11,19 @@
 # 使用 javax.servlet 依赖，参数使用 HttpServletRequest等运行报错
 **Spring5.3+版本 用 `javax.servlet` 会报错， 需要替换成 `jakarta.servlet` 依赖**
 
+错误信息如下
+```
+jakarta.servlet.ServletException: Request processing failed: java.lang.IllegalStateException: No primary or single unique constructor found for interface javax.servlet.http.HttpServletRequest
+	org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1022)
+	org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+```
+
 
 ---
 
