@@ -1,5 +1,6 @@
 package com.style103.springmvc;
 
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,13 +18,17 @@ public class GetRequestParamTest {
         return "params";
     }
 
-//    @RequestMapping("/by_http_servlet_request")
-//    public String get(HttpServletRequest request) {
-//        String username = request.getParameter("username");
-//        String password = request.getParameter("password");
-//        System.out.println("username: " + username + ", password: " + password);
-//        return "success";
-//    }
+    /**
+     * Spring5.6+版本 用 javax.servlet 会报错
+     * 需要替换成 jakarta.servlet 依赖
+     */
+    @RequestMapping("/by_http_servlet_request")
+    public String get(HttpServletRequest request) {
+        String username = request.getParameter("username");
+        String password = request.getParameter("password");
+        System.out.println("username: " + username + ", password: " + password);
+        return "success";
+    }
 
 
     @RequestMapping("/by_param_name")

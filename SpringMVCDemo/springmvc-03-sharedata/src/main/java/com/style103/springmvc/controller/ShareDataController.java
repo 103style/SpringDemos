@@ -1,5 +1,8 @@
 package com.style103.springmvc.controller;
 
+import jakarta.servlet.ServletContext;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -17,14 +20,16 @@ public class ShareDataController {
 
     /**
      * 这个运行报错 先不管吧
-     *
+     * Spring5.6+版本 用 javax.servlet 会报错
+     * 需要替换成 jakarta.servlet 依赖
      * @return
      */
-//    @RequestMapping("/testServletAPI")
-//    public String testServletAPI(HttpServletRequest request){
-//        request.setAttribute("testScope", "hello,servletAPI");
-//        return "success";
-//    }
+    @RequestMapping("/testServletAPI")
+    public String testServletAPI(HttpServletRequest request) {
+        request.setAttribute("testScope", "hello,servletAPI");
+        return "success";
+    }
+
     @RequestMapping("/testModelAndView")
     public ModelAndView testModelAndView() {
         ModelAndView modelAndView = new ModelAndView();
@@ -50,17 +55,25 @@ public class ShareDataController {
         modelMap.put("testScope", "hello,ModelMap");
         return "success";
     }
-//
-//    @RequestMapping("testSession")
-//    public String testSession(HttpSession session) {
-//        session.setAttribute("testScope", "hello,Session");
-//        return "success";
-//    }
-//
-//    @RequestMapping("testApplication")
-//    public String testApplication(HttpSession session) {
-//        ServletContext servletContext = session.getServletContext();
-//        servletContext.setAttribute("testScope", "hello,ServletContext");
-//        return "success";
-//    }
+
+    /**
+     * Spring5.6+版本 用 javax.servlet 会报错
+     * 需要替换成 jakarta.servlet 依赖
+     */
+    @RequestMapping("testSession")
+    public String testSession(HttpSession session) {
+        session.setAttribute("testScope", "hello,Session");
+        return "success";
+    }
+
+    /**
+     * Spring5.6+版本 用 javax.servlet 会报错
+     * 需要替换成 jakarta.servlet 依赖
+     */
+    @RequestMapping("testApplication")
+    public String testApplication(HttpSession session) {
+        ServletContext servletContext = session.getServletContext();
+        servletContext.setAttribute("testScope", "hello,ServletContext");
+        return "success";
+    }
 }

@@ -8,6 +8,12 @@
 
 ---
 
+# 使用 javax.servlet 依赖，参数使用 HttpServletRequest等运行报错
+**Spring5.6+版本 用 `javax.servlet` 会报错， 需要替换成 `jakarta.servlet` 依赖**
+
+
+---
+
 # SpringMVC-01-HelloWorld
 * 添加webapp模块
   * maven archetype → archetype 中选择 web-app
@@ -77,8 +83,8 @@
     ```
 * 获取请求参数
   * `get(HttpServletRequest request)`：配置 HttpServletRequest 类型的参数值, 
-     通过 `request.getParameter("username")`来获取对应的参数，测试报错❌
-  * `getParams(String username, String password)`：直接写参数的名字作为方法的参数，测试报错❌
+     通过 `request.getParameter("username")`来获取对应的参数，测试报错❌ (已修正，Spring5.6+版本 用 `javax.servlet` 会报错， 需要替换成 `jakarta.servlet` 依赖)
+  * `getParams(String username, String password)`：直接写参数的名字作为方法的参数，测试报错❌ (已修正，Spring5.6+版本 用 `javax.servlet` 会报错， 需要替换成 `jakarta.servlet` 依赖)
   * 通过给参数配置注解 `@RequestParam` 来指定当前参数对应哪个请求参数
     * `value`: 对应的请求参数名
     * `required`: 是否必传,默认false, 设置了 `defaultValue` 之后无效
@@ -100,13 +106,13 @@
 # SpringMVC-03-ShareData
 [参考代码](https://github.com/103style/SpringDemos/blob/master/SpringMVCDemo/springmvc-03-sharedata/src/main/java/com/style103/springmvc/controller/ShareDataController.java)
 
-* `HttpServletRequest` 的`setAttribute` 方式，运行报错 待处理
+* `HttpServletRequest` 的`setAttribute` 方式，运行报错 (已修正，Spring5.6+版本 用 `javax.servlet` 会报错， 需要替换成 `jakarta.servlet` 依赖)
 * `ModelAndView` 的 `addObject` 方式共享数据
 * `Model` 的 `addAttribute` 方式共享数据
 * `Map` 的 `put` 方法添加共享数据
 * `ModelMap` 的 `addAttribute` 方式
-* `session` 的`setAttribute` 方式，运行报错 待处理
-* `application` 的`setAttribute` 方式，运行报错 待处理
+* `session` 的`setAttribute` 方式，运行报错 (已修正，Spring5.6+版本 用 `javax.servlet` 会报错， 需要替换成 `jakarta.servlet` 依赖)
+* `application` 的`setAttribute` 方式，运行报错 (已修正，Spring5.6+版本 用 `javax.servlet` 会报错， 需要替换成 `jakarta.servlet` 依赖)
 
 **Model、ModelMap、Map的关系**
 ```

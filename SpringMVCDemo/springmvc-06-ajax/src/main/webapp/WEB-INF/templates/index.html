@@ -32,26 +32,31 @@
      *     console.log(response.data)
      * });
      */
-    var vue = new Vue({
-        el: "#app",
+    const {createApp} = Vue;
+    createApp({
+        data() {
+            return {};
+        },
         methods: {
             testAjax(event) {
-                axios.post(
-                    '/springmvc/test/ajax?id=1001',
-                    {
+                axios.post('/springmvc/test/ajax?id=1001', {
                         username: 'admin',
                         password: '123456'
+                    },
+                    {
+                        headers: {
+                            'Content-Type': 'application/json' // 确保 Content-Type 为 application/json
+                        }
                     }
-                )
-                    .then(function (response) {
-                        console.log(response);
-                    })
-                    .catch(function (error) {
-                        console.log(error);
-                    });
+                ).then(function (response) {
+                    console.log(response);
+                }).catch(function (error) {
+                    console.log(error);
+                });
             }
         }
-    });
+    }).mount('#app');
+
 </script>
 
 </body>
