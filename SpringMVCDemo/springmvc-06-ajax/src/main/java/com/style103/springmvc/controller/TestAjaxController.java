@@ -3,11 +3,11 @@ package com.style103.springmvc.controller;
 import com.style103.springmvc.pojo.User;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -49,5 +49,61 @@ public class TestAjaxController {
         System.out.println("---------testAjaxRequestBody usermap：" + usermap);
         response.getWriter().write("hello, ajax request body.");
     }
+
+    /**
+     * @ResponseBody 注解表示 将方法的返回值作为请求的响应体
+     */
+    @GetMapping("/test/reponsebody")
+    @ResponseBody
+    public String testResponseBody() {
+        return "this is testResponseBody";
+    }
+
+
+    /**
+     * 使用@ResponseBody注解 响应浏览器json格式的数据
+     * 1.导入jackson的依赖
+     * 2.springmvc.xml配置中需要开启  <mvc:annotation-driven/>
+     * 3.将要转换为json返回的java对象作为返回值
+     * 4.方法添加@ResponseBody注解
+     */
+    @GetMapping("/test/responsebody/json")
+    @ResponseBody
+    public User testResponseBodyJson() {
+        User user = new User(1, "103style", "123", 21, "男");
+        return user;
+    }
+
+    /**
+     * 返回map
+     */
+//    @GetMapping("/test/responsebody/json")
+//    @ResponseBody
+//    public Map<String, Object> testResponseBodyJson() {
+//        Map<String, Object> map = new HashMap<>();
+//        User user1 = new User(1, "103style1", "123", 21, "男");
+//        User user2 = new User(2, "103style2", "123", 21, "男");
+//        User user3 = new User(3, "103style3", "123", 21, "男");
+//        map.put(user1.getId().toString(), user1);
+//        map.put(user2.getId().toString(), user2);
+//        map.put(user3.getId().toString(), user3);
+//        return map;
+//    }
+
+    /**
+     * 返回list
+     */
+//    @GetMapping("/test/responsebody/json")
+//    @ResponseBody
+//    public List<User> testResponseBodyJson() {
+//        List<User> list = new ArrayList<>();
+//        User user1 = new User(1, "103style1", "123", 21, "男");
+//        User user2 = new User(2, "103style2", "123", 21, "男");
+//        User user3 = new User(3, "103style3", "123", 21, "男");
+//        list.add(user1);
+//        list.add(user2);
+//        list.add(user3);
+//        return list;
+//    }
 }
 

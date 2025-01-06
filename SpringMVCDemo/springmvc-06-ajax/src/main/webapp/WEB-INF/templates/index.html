@@ -11,7 +11,10 @@
 
 <div id="app">
     <input type="button" v-on:click="testAjax($event)" value="测试SpringMVC处理ajax请求"/> <br/>
-    <input type="button" v-on:click="testAjaxRequestBody()" value="是用@RequestBody注解来处理json格式的请求数据"/> <br/>
+    <input type="button" v-on:click="testAjaxRequestBody()" value="使用@RequestBody注解来处理json格式的请求数据"/> <br/>
+    <a th:href="@{/test/reponsebody}">测试@ReponseBody注解响应浏览器数据</a> <br/>
+    <input type="button" v-on:click="testAjaxJsonResponse()"
+           value="测试使用@ResponseBody注解响应浏览器请求，返回json数据"/> <br/>
 </div>
 
 <script type="text/javascript">
@@ -64,6 +67,15 @@
                 }).catch(function (error) {
                     console.log(error)
                 })
+            },
+            testAjaxJsonResponse() {
+                axios.get('/springmvc/test/responsebody/json')
+                    .then(function (response) {
+                        console.log(response);
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                    })
             }
         }
     }).mount('#app');
