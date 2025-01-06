@@ -20,7 +20,7 @@ public class ShareDataController {
 
     /**
      * 这个运行报错 先不管吧
-     * Spring5.6+版本 用 javax.servlet 会报错
+     * Spring5.3+版本 用 javax.servlet 会报错
      * 需要替换成 jakarta.servlet 依赖
      * @return
      */
@@ -57,7 +57,7 @@ public class ShareDataController {
     }
 
     /**
-     * Spring5.6+版本 用 javax.servlet 会报错
+     * Spring5.3+版本 用 javax.servlet 会报错
      * 需要替换成 jakarta.servlet 依赖
      */
     @RequestMapping("testSession")
@@ -67,7 +67,7 @@ public class ShareDataController {
     }
 
     /**
-     * Spring5.6+版本 用 javax.servlet 会报错
+     * Spring5.3+版本 用 javax.servlet 会报错
      * 需要替换成 jakarta.servlet 依赖
      */
     @RequestMapping("testApplication")

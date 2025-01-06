@@ -19,7 +19,7 @@ public class GetRequestParamTest {
     }
 
     /**
-     * Spring5.6+版本 用 javax.servlet 会报错
+     * Spring5.3+版本 用 javax.servlet 会报错
      * 需要替换成 jakarta.servlet 依赖
      */
     @RequestMapping("/by_http_servlet_request")
