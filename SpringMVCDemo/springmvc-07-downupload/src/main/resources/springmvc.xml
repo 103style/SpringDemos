@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+    <!-- 自动扫描包 -->
+    <context:component-scan base-package="com.style103.springmvc"/>
+
+    <!-- 配置Thymeleaf视图解析器 -->
+    <bean id="templateResolver"
+          class="org.thymeleaf.spring6.templateresolver.SpringResourceTemplateResolver">
+        <!--
+                        跳转目录：/WEB-INF/templates/index.html
+                        去掉前缀 /WEB-INF/templates/
+                        去掉后缀.html
+                        实际输入 index
+                    -->
+        <!-- 视图前缀 -->
+        <property name="prefix" value="/WEB-INF/templates/"/>
+        <!-- 视图后缀 -->
+        <property name="suffix" value=".html"/>
+
+        <property name="templateMode" value="HTML"/>
+        <property name="cacheable" value="true"/>
+
+        <property name="characterEncoding" value="UTF-8"/>
+    </bean>
+
+
+    <bean id="templateEngine"
+          class="org.thymeleaf.spring6.SpringTemplateEngine">
+        <property name="templateResolver" ref="templateResolver"/>
+        <property name="enableSpringELCompiler" value="true"/>
+    </bean>
+
+    <bean class="org.thymeleaf.spring6.view.ThymeleafViewResolver">
+        <property name="templateEngine" ref="templateEngine"/>
+        <property name="order" value="1"/>
+        <property name="characterEncoding" value="UTF-8"/>
+    </bean>
+
+    <!--
+        配置默认的servlet处理静态资源  还需要配置 开启注解驱动
+        当前工程的web.xml配置的前端控制器 DispatcherServlet 的url-pattern是 "/"
+        tomcat的web.xml配置的前端控制器 DefaultServlet 的url-pattern也是 "/"
+        此时浏览器的处理优先被DispatcherServlet进行处理，但是它无法处理静态资源
+        若配置了 <mvc:default-servlet-handler/> 此时浏览器发送的请求都会被DefaultServlet处理
+        若配置了 <mvc:default-servlet-handler/> 和 <mvc:annotation-driven/>
+        浏览器发送的请求默认会被 DispatcherServlet处理，处理不了的会被DefaultServlet处理
+    -->
+    <mvc:default-servlet-handler/>
+
+    <!--  开启注解驱动  -->
+    <mvc:annotation-driven/>
+
+    <!--  配置试图控制器  需要开启注解驱动， 否则只能处理 / 这一个地址 -->
+    <mvc:view-controller path="/" view-name="index"/>
+
+</beans>
