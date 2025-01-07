@@ -15,6 +15,7 @@ import java.util.Map;
  * github:https://github.com/103style
  */
 @Controller
+//@RestController 相当于@Controller和给每个方法加上@ResponseBody注解
 public class TestAjaxController {
 
     /**
