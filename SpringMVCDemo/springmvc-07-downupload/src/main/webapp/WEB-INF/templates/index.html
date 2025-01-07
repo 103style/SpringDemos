@@ -6,6 +6,15 @@
 </head>
 <body>
 <h1>下载/上传</h1>
-<a th:href="@{/test/download}">下载图片</a>
+<a th:href="@{/test/download}">下载图片</a> <br>
+
+<p></p>
+
+<form enctype="multipart/form-data" method="post" th:action="@{/test/upload}">
+    头像：<input accept="image/*" id="photo" multiple="multiple" name="photo" type="file"> <br>
+    <input type="submit" value="上传">
+</form>
+
+
 </body>
 </html>

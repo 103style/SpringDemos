@@ -57,4 +57,9 @@
     <!--  配置试图控制器  需要开启注解驱动， 否则只能处理 / 这一个地址 -->
     <mvc:view-controller path="/" view-name="index"/>
 
+    <!-- 配置文件上传解析器 通过id获取 -->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.support.StandardServletMultipartResolver">
+        <property name="resolveLazily" value="true" />
+    </bean>
+
 </beans>
