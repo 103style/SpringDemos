@@ -17,4 +17,36 @@
 * [SSM]() TODO
   * https://www.bilibili.com/video/BV1Ya411S7aT/
 
-  
+* [SpringBoot]() TODO
+  * https://www.bilibili.com/video/BV1Es4y1q7Bf/
+
+* [MyBatisPlus]() TODO
+  * https://www.bilibili.com/video/BV12R4y157Be/
+
+* [SpringCloud]() TODO
+  * https://www.bilibili.com/video/BV1gW421P7RD/
+
+* [SpringSecurity+OAuth2]() TODO
+  * https://www.bilibili.com/video/BV14b4y1A7Wz/
+
+* [Nginx]() TODO
+  * https://www.bilibili.com/video/BV1yS4y1N76R/
+
+* [MySQL]() TODO
+  * https://www.bilibili.com/video/BV1iq4y1u7vj/
+
+* [Redis]() TODO
+  * https://www.bilibili.com/video/BV13R4y1v7sP/
+
+* [Docker]() TODO
+  * https://www.bilibili.com/video/BV1gr4y1U7CY/
+
+* [ElasticSearch]() TODO
+  * https://www.bilibili.com/video/BV1hh411D7sb/
+
+* [Zookeeper]() TODO
+  * https://www.bilibili.com/video/BV1to4y1C7gw/
+
+* [RocketMQ]() TODO
+  * https://www.bilibili.com/video/BV1cf4y157sz/
+
