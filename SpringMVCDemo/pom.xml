@@ -17,6 +17,7 @@
         <module>springmvc-06-ajax</module>
         <module>springmvc-07-downupload</module>
         <module>springmvc-08-intercept</module>
+        <module>springmvc-09-exceptionhandler</module>
     </modules>
 
     <properties>
