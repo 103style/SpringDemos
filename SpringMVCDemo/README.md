@@ -268,3 +268,35 @@ axios.post('/springmvc/test/ajax?id=1001', {
     ```
 
 ---
+
+# SpringMVC-08-Intercept
+拦截器，会拦截`DispatcherServlet`处理所有的请求（可以通过配置修改）
+
+* 首先需要实现 `HandlerInterceptor` 接口
+* 需要在springmvc配置中添加拦截器配置
+  ```
+  <mvc:interceptors>
+      <!-- 方式1和2配置的拦截器会拦截DispatcherServlet处理所有的请求-->
+      <!-- 方式1 -->
+      <!-- <bean class="com.style103.springmvc.intercept.TestFirstIntercept"/>-->
+      <!-- 方式2  需要在 TestFirstIntercept 中添加@Component注解-->
+      <!-- component-scan 配置的扫描包也要包含TestFirstIntercept所在包 -->
+      <!-- <ref bean="testFirstIntercept"/>-->
+      <!-- 方式3  可以配置要拦截的路径 和 排除的路径-->
+      <mvc:interceptor>
+          <!-- /* 只能匹配 一层路径（/abc）, /a/b/c 就不会匹配， 需要匹配就需要改成 /** -->
+          <!--  <mvc:mapping path="/*"/>-->
+          <mvc:mapping path="/**"/>
+          <mvc:exclude-mapping path="/abc/ab"/>
+          <ref bean="testFirstIntercept"/>
+      </mvc:interceptor>
+      ...
+  </mvc:interceptors>
+  ```
+* 拦截器方法的执行顺序
+  * `preHandle`是配置的顺序 **顺序执行**，其他两个方法是 **逆序执行**, 参考以下代码：
+    * `org.springframework.web.servlet.HandlerExecutionChain#applyPreHandle`
+    * `org.springframework.web.servlet.HandlerExecutionChain#applyPostHandle`
+  * 如果后面的拦截器 `preHandle` 返回 `false`, 前面拦截器的 `preHandle`和`afterCompletion`会执行。
+
+---

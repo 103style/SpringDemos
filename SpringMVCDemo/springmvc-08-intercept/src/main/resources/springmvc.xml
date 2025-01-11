@@ -57,4 +57,31 @@
     <!--  配置试图控制器  需要开启注解驱动， 否则只能处理 / 这一个地址 -->
     <mvc:view-controller path="/" view-name="index"/>
 
+    <mvc:interceptors>
+        <!-- 方式1和2配置的拦截器会拦截DispatcherServlet处理所有的请求-->
+        <!-- 方式1 -->
+        <!-- <bean class="com.style103.springmvc.intercept.TestFirstIntercept"/>-->
+        <!-- 方式2  需要在 TestFirstIntercept 中添加@Component注解-->
+        <!-- component-scan 配置的扫描包也要包含TestFirstIntercept所在包 -->
+        <!-- <ref bean="testFirstIntercept"/>-->
+        <!-- 方式3  可以配置要拦截的路径 和 排除的路径-->
+        <mvc:interceptor>
+            <!-- /* 只能匹配 一层路径（/abc）, /a/b/c 就不会匹配， 需要匹配就需要改成 /** -->
+            <!--  <mvc:mapping path="/*"/>-->
+            <mvc:mapping path="/**"/>
+            <mvc:exclude-mapping path="/abc/ab"/>
+            <ref bean="testFirstIntercept"/>
+        </mvc:interceptor>
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <mvc:exclude-mapping path="/abc/ab"/>
+            <ref bean="testSecondIntercept"/>
+        </mvc:interceptor>
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <mvc:exclude-mapping path="/abc/ab"/>
+            <ref bean="testThirdIntercept"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
+
 </beans>
