@@ -58,14 +58,14 @@
     <mvc:view-controller path="/" view-name="index"/>
 
     <!--  配置异常处理器  -->
-    <bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
-        <property name="exceptionMappings">
-            <props>
-                <!-- 配置对应异常跳转的逻辑视图 -->
-                <prop key="java.lang.ArithmeticException">error</prop>
-            </props>
-        </property>
-        <!-- 共享异常信息到请求域中， 名字为value配置的值 -->
-        <property name="exceptionAttribute" value="ex"/>
-    </bean>
+<!--    <bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">-->
+<!--        <property name="exceptionMappings">-->
+<!--            <props>-->
+<!--                &lt;!&ndash; 配置对应异常跳转的逻辑视图 &ndash;&gt;-->
+<!--                <prop key="java.lang.ArithmeticException">error</prop>-->
+<!--            </props>-->
+<!--        </property>-->
+<!--        &lt;!&ndash; 共享异常信息到请求域中， 名字为value配置的值 &ndash;&gt;-->
+<!--        <property name="exceptionAttribute" value="ex"/>-->
+<!--    </bean>-->
 </beans>
