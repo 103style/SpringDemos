@@ -172,3 +172,99 @@ public class BindingAwareModelMap extends ExtendedModelMap {}
   * 点击事件设置 `v-on:click="deleteEmployee($event)"`
 
 ---
+
+# SpringMVC-06-ajax
+ajax请求地址为 `http://localhost:8080` 后面的全路径 
+
+参考文档：https://www.axios-http.cn/docs/intro
+
+请求示例:
+```
+// 这两个方式选一个都可以
+// 1
+// <script th:src="@{/static/js/vue.js}"></script>
+// 2
+const axios = require('axios');
+
+
+// 向给定ID的用户发起请求
+axios.get('/user?ID=12345')
+  .then(function (response) {
+    // 处理成功情况
+    console.log(response);
+  })
+  .catch(function (error) {
+    // 处理错误情况
+    console.log(error);
+  })
+  .finally(function () {
+    // 总是会执行
+  });
+
+axios.post('/springmvc/test/ajax?id=1001', {
+        username: 'admin',
+        password: '123456'
+    },
+    {
+        headers: {
+            'Content-Type': 'application/json' // 确保 Content-Type 为 application/json
+        }
+    }
+).then(function (response) {
+    console.log(response);
+}).catch(function (error) {
+    console.log(error);
+});
+```
+
+
+---
+
+
+# SpringMVC-07-DownUpload
+* 下载
+  ```
+  public ResponseEntity<byte[]> downloadFile(HttpSession session) throws IOException {
+      //获取ServletContext对象
+      ServletContext servletContext = session.getServletContext();
+      //获取服务器中文件的真实路径
+      String realPath = servletContext.getRealPath("img") + File.separator + "heiwukong.png";
+      System.out.println("realPath:" + realPath);
+      //创建输入流
+      InputStream is = new FileInputStream(realPath);
+      //创建字节数组
+      byte[] bytes = new byte[is.available()];
+      //将流读到字节数组中
+      is.read(bytes);
+      //创建HttpHeaders对象设置响应头信息
+      MultiValueMap<String, String> headers = new HttpHeaders();
+      //设置要下载方式以及下载文件的名字
+      headers.add("Content-Disposition", "attachment;filename=heiwukong.jpg");
+      //设置响应状态码
+      HttpStatus statusCode = HttpStatus.OK;
+      //创建ResponseEntity对象
+      ResponseEntity<byte[]> responseEntity = new ResponseEntity<>(bytes, headers, statusCode);
+      //关闭输入流
+      is.close();
+      return responseEntity;
+  }
+  ```
+* 上传
+  * `form` 表单一定需要设置 `method` 的为 `post`, `enctype` 为 `multipart/form-data`
+  * `input` 配置的 `name` 的值就是请求参数
+    ```
+    <form enctype="multipart/form-data" method="post" th:action="@{/test/upload}">
+        头像：<input accept="image/*" id="photo" multiple="multiple" name="photo" type="file"> <br>
+        <input type="submit" value="上传">
+    </form>
+    ```
+  * springmvc配置需要配置 `id="multipartResolver" class="org.springframework.web.multipart.support.StandardServletMultipartResolver"` 的文件上传解析器
+    * 😫😫😫TODO 目前上传还是失败，还没找到哪里不对😫😫😫 
+    ```
+    <!-- 配置文件上传解析器 通过id获取 -->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.support.StandardServletMultipartResolver">
+        <property name="resolveLazily" value="true" />
+    </bean>
+    ```
+
+---
