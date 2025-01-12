@@ -18,6 +18,7 @@
         <module>springmvc-07-downupload</module>
         <module>springmvc-08-intercept</module>
         <module>springmvc-09-exceptionhandler</module>
+        <module>springmvc-10-annotation</module>
     </modules>
 
     <properties>
