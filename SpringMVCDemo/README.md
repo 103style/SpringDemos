@@ -300,3 +300,61 @@ axios.post('/springmvc/test/ajax?id=1001', {
   * 如果后面的拦截器 `preHandle` 返回 `false`, 前面拦截器的 `preHandle`和`afterCompletion`会执行。
 
 ---
+
+# SpringMVC-09-ExceptionHandler 
+异常处理器
+
+有两个配置，第一种通过在springmvc.xml中配置，第二种通过注解的方式
+* xml配置方式:
+  ```
+  <!--  配置异常处理器  -->
+  <bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+      <property name="exceptionMappings">
+          <props>
+              <!-- 配置对应异常跳转的逻辑视图 -->
+              <prop key="java.lang.ArithmeticException">error</prop>
+          </props>
+      </property>
+      <!-- 共享异常信息到请求域中， 名字为value配置的值 -->
+      <property name="exceptionAttribute" value="ex"/>
+  </bean>
+  ```
+  
+* 注解方式：通过在方法上添加 `@ExceptionHandler(ArithmeticException.class)`, 配置要处理的异常。
+  ```
+  // 配置要处理的异常， 返回遇到该异常时要跳转的逻辑视图
+  @ExceptionHandler(ArithmeticException.class) 
+  public String handleException(Throwable ex, Model model) {
+      System.out.println("-------handleException ex:" + ex);
+      System.out.println("-------handleException ex:" + ex);
+      model.addAttribute("ex", ex);
+      return "error";
+  }
+  ```
+
+
+---
+
+
+# SpringMVC-10-Annotation
+通过注解配置SpringMVC，替换 `web.xml``配置
+
+* 继承抽象类 `AbstractAnnotationConfigDispatcherServletInitializer`，实现对应的方法
+  * `Class<?>[] getRootConfigClasses()`    : spring配置的class数组
+  * `Class<?>[] getServletConfigClasses()` : springmvc配置的class数组
+  * `String[] getServletMappings()`        : 设置SpringMVC前端控制器 `DispatcherServlet` 的 `url-pattern`
+  * `Filter[] getServletFilters()`         : 设置过滤器
+
+* 给Spring配置和 SpringMVC配置的类 添加注解 `@Configuration`, 标识该类设置为配置类
+
+* SpringMVC类配置，继承类 `WebMvcConfigurer`, 参考示例类 `WebConfig`
+  * 扫描组件       : 给配置类添加注解 `@ComponentScan(包名)`
+  * 视图解析器      : 实现方法`viewResolver() / templateEngine() / templateResolver()` ，并在方法添加 `@Bean` 注解，
+  * 默认的servlet  : 重写方法 `configureDefaultServletHandling()`
+  * mvc驱动        : 给配置类添加注解 `@EnableWebMvc`
+  * 视图控制器      : 重写方法 `addViewControllers()`
+  * 文件上传解析器   : 实现方法 `StandardServletMultipartResolver multipartResolver()`，并在方法添加 `@Bean` 注解
+  * 拦截器         : 重写方法 `addInterceptors()`
+  * 异常解析器      : 重写方法 `configureHandlerExceptionResolvers()`
+
+---
