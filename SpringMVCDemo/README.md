@@ -363,3 +363,26 @@ axios.post('/springmvc/test/ajax?id=1001', {
   * 异常解析器      : 重写方法 `configureHandlerExceptionResolvers()`
 
 ---
+
+# SpringMVC-11-Listener
+Spring、SpringMVC分开配置
+
+通过配置 `ContextLoaderListener` 以及配置上下文参数 `contextConfigLocation` 来加载`spring`的配置
+
+`context-param` 中 `param-name`是固定的值 `contextConfigLocation`, 可以参考代码实现:
+* `ContextLoader.configureAndRefreshWebApplicationContext`
+* `String configLocationParam = sc.getInitParameter("contextConfigLocation");`
+
+```
+<listener>
+    <!--  用于在服务器启动的时候加载Spring的配置文件   -->
+    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+</listener>
+
+<context-param>
+    <param-name>contextConfigLocation</param-name>
+    <param-value>classpath:spring.xml</param-value>
+</context-param>
+```
+
+---
