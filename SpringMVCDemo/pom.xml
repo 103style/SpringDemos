@@ -19,6 +19,7 @@
         <module>springmvc-08-intercept</module>
         <module>springmvc-09-exceptionhandler</module>
         <module>springmvc-10-annotation</module>
+        <module>springmvc-11-listener</module>
     </modules>
 
     <properties>
