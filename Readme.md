@@ -9,10 +9,10 @@
   *  https://www.bilibili.com/video/BV1kR4y1b7Qc/
 
 * [MyBatis](https://github.com/103style/SpringDemos/tree/master/MyBatisDemo) done
-  * https://www.bilibili.com/video/BV1Ya411S7aT/
+  * https://www.bilibili.com/video/BV1Ya411S7aT/ **p1 - p62**
 
-* [SpringMVC](https://github.com/103style/SpringDemos/tree/master/SpringMVCDemo) doing
-  * https://www.bilibili.com/video/BV1Ya411S7aT/
+* [SpringMVC](https://github.com/103style/SpringDemos/tree/master/SpringMVCDemo) done
+  * https://www.bilibili.com/video/BV1Ya411S7aT/  **p118 - p178**
 
 * [SSM]() TODO
   * https://www.bilibili.com/video/BV1Ya411S7aT/
