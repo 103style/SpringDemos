@@ -22,6 +22,10 @@
 
 # SpringBoot-02-StartSpringIO
 通过 `start.spring.io` 或者 spring插件直接创建一键工程
+* `xxxApplication` 程序启动入口
+* `static`目录放静态资源
+* `templates` 放页面
+* `application.properties` 配置文件
 
 ---
 
