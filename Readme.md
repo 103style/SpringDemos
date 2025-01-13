@@ -19,6 +19,8 @@
 
 * [SpringBoot]() TODO
   * https://www.bilibili.com/video/BV1Es4y1q7Bf/
+  * 老师代码：https://gitee.com/leifengyang/spring-boot-3
+  * 老师笔记：https://www.yuque.com/leifengyang/springboot3
 
 * [MyBatisPlus]() TODO
   * https://www.bilibili.com/video/BV12R4y157Be/
