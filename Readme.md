@@ -26,6 +26,7 @@
   * https://www.bilibili.com/video/BV12R4y157Be/
 
 * [SpringCloud]() TODO
+  * https://www.bilibili.com/video/BV1UJc2ezEFU/ 
   * https://www.bilibili.com/video/BV1gW421P7RD/
 
 * [SpringSecurity+OAuth2]() TODO
